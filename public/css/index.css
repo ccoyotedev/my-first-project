@@ -1,0 +1,73 @@
+@font-face {
+    font-family: RolletteQaku;
+    src: url('fonts/coolfont.ttf');
+}
+
+
+#map {
+	z-index: 0;
+	padding-left: 0px
+}
+
+#sidebar {
+	z-index: 1;
+	min-width: 100px;
+    max-width: 250px;
+    min-height: 100vh;
+    margin-left:-15px;
+
+    background: rgb(57,52,110, 0.9) ;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar h3 {
+	font-family: RolletteQaku;
+	color:orange;
+	font-size: 60px;
+	margin-bottom: -15px;
+}
+#sidebar p {
+	font-family: RolletteQaku;
+	color:orange;
+	font-size: 50px;
+}
+#sidebar a {
+	color:orange;
+	font-family: arial;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+.collapse {
+	padding-left: 10px;
+}
+
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}

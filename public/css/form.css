@@ -1,0 +1,74 @@
+@font-face {
+	font-family: RolletteQaku;
+	src: url('fonts/coolfont.ttf');
+}
+
+
+body {
+	background-image: url("img/audience.jpg");
+	background-size: 100vw 100vh;
+	margin:0%;
+	font-family: Arial;
+	font-size: 2vh;
+}
+
+#title {
+	font-family: RolletteQaku;
+	text-align: center;
+	color: orange;
+	padding-bottom: 0vh;
+	padding-top:3vh;
+	z-index: 1;
+	
+}
+
+#title h1 {
+	padding-top: 1vh;
+	font-size:20vh;
+	margin-bottom:-8vh;
+}
+
+#title h2 {
+	padding-top:0vh;
+	color: white;
+	font-size: 10vh;
+	margin-top:0vh;
+}
+
+
+.form {
+	text-align: center;
+	color:orange;
+	background-color: rgba(0, 0, 0, 0.45);
+	width:40vw;
+	margin-left:30vw;
+	margin-top:-5vh;
+	position:absolute;
+}
+
+.form h2 {
+	font-size: 30px;
+	padding-top:3vh;
+}
+.form-control {
+	height: 5vh;
+    padding: 0px;
+    margin-left: 5vw;
+    width: 75%;
+}
+.form-group {
+    margin-bottom: 0px;
+}
+.form-redirects a {
+	font-size:10px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 1px;
+}
+
+.btn {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
