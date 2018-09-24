@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVenuesTable extends Migration
+class CreateAdminsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateVenuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('venues', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('city');
-            $table->string('street_address');
-            $table->string('post_code');
-            $table->decimal('longitude', 8, 6);
-            $table->decimal('latitude', 8, 6);
+            $table->integer('user_id')->unsigned();
+
             $table->timestamps();
+       
         });
     }
 
@@ -32,6 +29,6 @@ class CreateVenuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('venues');
+        Schema::dropIfExists('admins');
     }
 }

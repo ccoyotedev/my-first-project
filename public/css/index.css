@@ -9,6 +9,8 @@
 	padding-left: 0px
 }
 
+/*sidebar*/
+
 #sidebar {
 	z-index: 1;
 	min-width: 100px;
@@ -19,6 +21,7 @@
     background: rgb(57,52,110, 0.9) ;
     color: #fff;
     transition: all 0.3s;
+    position: fixed;
 }
 
 #sidebar h3 {
@@ -71,3 +74,15 @@ a[data-toggle="collapse"] {
         margin-left: 0;
     }
 }
+
+/*Venues*/
+
+#venue_list h1 {
+    text-align: right;
+}
+
+#venue_list .card {
+    margin-bottom: 5vh;
+}
+
+#venue_list 

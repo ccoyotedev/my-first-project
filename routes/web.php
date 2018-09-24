@@ -22,3 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::get('/venues', 'ChordController@venuesView')->name("venues.view");
+
+Route::get('/admin_venues', 'AdminController@adminVenuesView')->name("admin_venues.view");

@@ -17,6 +17,12 @@ class UsersSeeder extends Seeder
     	//clears table
 		DB::table('users')->truncate();
 
+        $user1 = User::create([
+            'email' => 'caleb@hotmail.com',
+            'name' => 'Caleb',
+            'password' => Hash::make('password')
+        ]);
+
 		for($i=0; $i<10; $i++) {
 			User::create([
 				'email' => "users$i@hotmail.com",
@@ -29,12 +35,6 @@ class UsersSeeder extends Seeder
  
         //write the fields to the DB
 
-
-        $user2 = User::create([
-        	'email' => 'dave@dave.com',
-        	'name' => 'Dave',
-        	'password' => Hash::make('password')
-        ]);
 
     }
 }
