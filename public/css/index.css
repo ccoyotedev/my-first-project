@@ -81,8 +81,7 @@ a[data-toggle="collapse"] {
     text-align: right;
 }
 
-#venue_list .card {
+.card {
     margin-bottom: 5vh;
 }
 
-#venue_list 

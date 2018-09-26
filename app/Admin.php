@@ -11,11 +11,11 @@ class Admin extends Model
     	'user_id',
     ];
 
-    public function venue() {
-    	return $this->belongsToMany('App\Venue', 'AdminVenue', 'admin_id', 'venue_id');
+    public function venues() {
+    	return $this->belongsToMany('App\Venue', 'deeds');
 	}
 
-	public function event() {
+	public function events() {
 		return $this->hasMany('App\Event');
 	}
 

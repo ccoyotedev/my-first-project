@@ -18,10 +18,11 @@ class CreateEventsTable extends Migration
             $table->integer('venue_id')->unsigned();
             $table->string('title');
             $table->date('date');
-            $table->time('time');
-            $table->integer('age_restriction');
+            $table->time('start_time');
+            $table->time('end_time');
+            $table->string('age_restriction');
             $table->string('genre');
-            $table->decimal('ticket_price', 5, 2);
+            $table->integer('ticket_price');
             $table->string('description', 500);
             $table->string('ticket_link');
             $table->integer('created_by')->unsigned();

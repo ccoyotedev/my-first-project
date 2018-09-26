@@ -5,7 +5,7 @@ use Auth;
 use App\Venue;
 use App\User;
 use App\Admin;
-use App\AdminVenue;
+use App\Deed;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller {
@@ -13,12 +13,22 @@ class AdminController extends Controller {
 
     public static function adminVenuesView() {
     	$user = Auth::id();
-    	$admin = Admin::where('user_id', $user);
+    	$admin = Admin::where('user_id', $user)->first();
 
-    	$venues = $admin->venue;
+    	$venues = $admin->venues;
   
         return view('admin_venues', compact('venues'));         
     }
+
+
+
+
+    public static function addEventForm(Venue $venue) {
+  
+    	return view('add_event', compact('venue'));
+    }
+
+
 
 
 }

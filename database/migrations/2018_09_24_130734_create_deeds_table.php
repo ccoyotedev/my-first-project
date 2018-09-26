@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminVenueTable extends Migration
+class CreateDeedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAdminVenueTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_venues', function (Blueprint $table) {
+        Schema::create('deeds', function (Blueprint $table) {
 
             $table->integer('admin_id')->unsigned();
             $table->integer('venue_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateAdminVenueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_venue');
+        Schema::dropIfExists('deeds');
     }
 }

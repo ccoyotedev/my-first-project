@@ -74,13 +74,13 @@
                             </li>
                             <?php 
                             function adminView() {
-                                $user = Auth::user();
+                                $user_id = Auth::id();
                                 $admins = Admin::all();
                                 foreach ($admins as $admin) {
-                                    if ($admin->user_id == $user->id) {
+                                    if ($admin->user_id == $user_id) {
                                         ?>
                                         <li>
-                                            <a href="{{ route('admin_venues.view') }}">Add Events</a>
+                                            <a href="{{ route('admin-venues.view') }}">Add Events</a>
                                         </li>
                                         <?php
                                     }

@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AdminVenue extends Model
+// ?
+class Deeds extends Model
 {
    protected $fillable = [
    		'venue_id',

@@ -17,12 +17,12 @@ class Venue extends Model
     	'latitude'
     ];
 
-    public function admin() {
-    	return $this->belongsToMany('App\Admin', 'AdminVenue', 'venue_id', 'admin_id');
+    public function admins() {
+    	return $this->belongsToMany('App\Admin','deeds');
 
 	}
 
-	public function event() {
+	public function events() {
 		return $this->hasMany('App\Event');
 	}
 

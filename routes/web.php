@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('tinker', function () {
+	return App\Venue::where('id',1)->first()->events;
+});
+
 Route::get('register', 'RegisterController@registerView')->name("register.view");
 
 Route::get('login', 'LoginController@loginView')->name("login.view");
@@ -25,4 +29,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/venues', 'ChordController@venuesView')->name("venues.view");
 
-Route::get('/admin_venues', 'AdminController@adminVenuesView')->name("admin_venues.view");
+Route::get('/admin-venues', 'AdminController@adminVenuesView')->name("admin-venues.view");
+
+Route::get('/admin-venues/add-event/{venue}', 'AdminController@addEventForm')->name('admin.addevent');
+
+Route::post('/admin-venues/add-event', 'EventController@store')->name('event.store');
+
+Route::get('/events/{venue}', 'EventController@view')->name('events.show');
