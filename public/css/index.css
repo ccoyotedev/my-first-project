@@ -86,6 +86,6 @@ a[data-toggle="collapse"] {
 }
 
 .glow {
-    background-color: orange;
-    color: white;
+    background-color: #ffc107;
+    color: black;
 }

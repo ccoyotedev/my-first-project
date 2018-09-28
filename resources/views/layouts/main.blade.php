@@ -45,7 +45,7 @@
                                 <a href="{{ route('user.interests') }}">Interested</a>
                             </li>
                             <li>
-                                <a href="#">Favourites</a>
+                                <a href="{{ route('user.favourites') }}">Favourites</a>
                             </li>
                             <li>
                                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Filter</a>

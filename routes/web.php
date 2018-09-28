@@ -29,16 +29,18 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('venues', 'ChordController@venuesView')->name("venues.view");
 
+Route::get('venue/{venue}', 'FavouriteController@register')->name("venue.favourite");
+
 Route::get('admin-venues', 'AdminController@adminVenuesView')->name("admin-venues.view");
 
 Route::get('venue/{venue}/events', 'EventController@view')->name('events.show');
 
 Route::get('venue/{venue}/events/create', 'AdminController@addEventForm')->name('admin.addevent');
 
-// Route::post('venue/{venue}/events', 'EventController@store')->name('event.store');
-
 Route::post('venue/{venue}/add-event', 'EventController@store')->name('event.store');
 
 Route::get('interests', 'EventController@viewInterested')->name('user.interests');
+
+Route::get('favourites', 'FavouriteController@viewFavourites')->name('user.favourites');
 
 Route::get('venue/{venue}/events/{event}/register-interest', 'EventController@registerInterest')->name('event.interest');

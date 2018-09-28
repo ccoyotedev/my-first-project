@@ -6,6 +6,7 @@ use App\Venue;
 use App\Event;
 use App\Admin;
 use App\Interest;
+use App\User;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -42,7 +43,9 @@ class EventController extends Controller
 
     public static function viewInterested() {
 
-        return view('interests');
+        $events = Auth::user()->events;
+      
+        return view('interests', compact('events'));
     }
 
     public static function registerInterest(Venue $venue, Event $event) {
@@ -53,7 +56,7 @@ class EventController extends Controller
 
         if ($interested->count() > 0) {
             Interest::where('user_id', $user_id)->where('event_id', $event_id)->delete();
-            // $interested->delete();
+
         } else {
 
             Interest::create([
