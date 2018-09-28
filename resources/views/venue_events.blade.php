@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('content')
-<div class="col-lg-10">
+<div class="col-sm-10 offset-sm-1">
 	<h1 style='text-align: center; padding-bottom:2vh;'> {{$venue->name}}</h1>
 	@foreach ($events as $event)
 		<div class="row">
@@ -39,10 +39,10 @@
 				</div>
 				<div class='row'>
 					<div class="col-lg-8">
-						<a href="" class="btn btn-outline-warning">Buy Tickets</a>
+						<a href="{{ $event->ticket_link }}" target="_blank" class="btn btn-outline-warning">Buy Tickets</a>
 					</div>
 					<div class="col-lg-4">
-						<a href="" class="btn btn-outline-warning">Interested</a>
+						<a href="#" class="btn btn-outline-warning interested-button @if($event->userInterested) glow @endif" data-url="{{ route('event.interest', ['venue' => $venue, 'event' => $event])}}">Interested</a>
 					</div>
 				</div>
 			</div>
@@ -55,4 +55,29 @@
 		<hr>
 	@endforeach
 </div>
+@endsection
+
+@section('script')
+
+	<script type="text/javascript">
+
+		$(function(){
+
+			$('.interested-button').on('click', function(){
+				var thisButton = $(this);
+				var url = thisButton.data('url');
+
+
+
+				$.ajax({
+					url: url,
+					complete: function(jqXHR, textStatus){
+						thisButton.addClass('glow');
+					}
+				})
+
+				return false;
+			});
+		});
+	</script>
 @endsection

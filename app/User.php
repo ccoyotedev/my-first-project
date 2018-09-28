@@ -30,4 +30,8 @@ class User extends Authenticatable
     public function admin() {
         return $this->hasOne('App\Admin');
     }
+
+    public function events() {
+        return $this->belongsToMany('App\Event', 'interests');
+    }
 }

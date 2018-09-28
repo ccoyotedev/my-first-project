@@ -41,19 +41,11 @@
 
                         <ul class="list-unstyled components">
                             <a href=" {{ route('index') }}"><p>Menu</p></a>
-                            <li class="active">
-                                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Favourites</a>
-                                <ul class="collapse list-unstyled" id="homeSubmenu">
-                                    <li>
-                                        <a href="#">Favourite 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Favourite 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Favourite 3</a>
-                                    </li>
-                                </ul>
+                            <li>
+                                <a href="{{ route('user.interests') }}">Interested</a>
+                            </li>
+                            <li>
+                                <a href="#">Favourites</a>
                             </li>
                             <li>
                                 <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Filter</a>
@@ -90,6 +82,7 @@
                             AdminView();
                              ?>                           
                             <li>
+                                <br>
                                 <a href="#">Contact us</a>
                             </li>
                             <li>
@@ -112,11 +105,32 @@
             center: [-3.178, 51.48],
             zoom: 13,
         });
+
+        map.on('click', function(e) {
+          var features = map.queryRenderedFeatures(e.point, {
+            layers: ['venues'] // replace this with the name of the layer
+          });
+
+          if (!features.length) {
+            return;
+          }
+
+          var feature = features[0];
+
+          var popup = new mapboxgl.Popup({ offset: [0, -15] })
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+            .setLngLat(feature.geometry.coordinates)
+            .addTo(map);
+        });
     </script>
    
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    @section('script')
+    @show
 </body>
 </html>

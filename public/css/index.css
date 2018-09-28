@@ -85,3 +85,7 @@ a[data-toggle="collapse"] {
     margin-bottom: 5vh;
 }
 
+.glow {
+    background-color: orange;
+    color: white;
+}

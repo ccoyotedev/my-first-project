@@ -3,22 +3,23 @@
 @section('content')
 <div class='col-lg-11'>
 	<h1>{{$venue->name}}</h1>
-	<form method="POST" action= " {{ route('event.store') }} ">
+	<form method="POST" action= "{{ route('event.store', $venue) }}">
+		{{ csrf_field() }}
 		<div class="form-group">
 		    <label for="title">Event Title</label>
-		    <input type="text" class="form-control" id="title">
+		    <input type="text" class="form-control" name="title" id="title">
 		</div>
 		<div class="form-group">
 		    <label for="date">Date</label>
-		    <input type="date" class="form-control" id="date">
+		    <input type="date" class="form-control" name="date" id="date">
 		</div>
 		<div class="form-group">
 		    <label for="start-time">Start Time</label>
-		    <input type="Time" class="form-control" id="start-time">
+		    <input type="Time" class="form-control" name="start-time" id="start-time">
 		</div>
 		<div class="form-group">
 		    <label for="end-time">End Time</label>
-		    <input type="time" class="form-control" id="end-time">
+		    <input type="time" class="form-control" name="end-time" id="end-time">
 		</div>
 		<fieldset class="form-group">
 		    <div class="row">
@@ -47,19 +48,19 @@
 	 	</fieldset>
 	 	<div class="form-group">
 		    <label for="genre">Genre</label>
-		    <input type="text" class="form-control" id="genre">
+		    <input type="text" class="form-control" name="genre" id="genre">
 		</div>
 		<div class="form-group">
 		    <label for="description">Description</label>
-		    <input type="text" class="form-control" id="description">
+		    <input type="text" class="form-control" name="description" id="description">
 		</div>
 		<div class="form-group">
 		    <label for="ticket-price">Ticket Price</label>
-		    <input type="number" class="form-control" id="ticket-price">
+		    <input type="number" class="form-control" name="ticket-price" id="ticket-price">
 		</div>
 		<div class="form-group">
 		    <label for="ticket-link">Ticket link</label>
-		    <input type="url" class="form-control" id="ticket-link">
+		    <input type="url" class="form-control" name="ticket-link" id="ticket-link">
 		</div>
 		<button type="submit" class="btn btn-outline-warning">
             Add Event
