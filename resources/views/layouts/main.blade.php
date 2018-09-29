@@ -8,16 +8,19 @@
     <!-- Boostrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <link rel="stylesheet"  type="text/css" href="{{ URL::asset('css/index.css') }}">
-
     <title>Chord</title>
 
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!-- fun icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet"  type="text/css" href="{{ URL::asset('css/index.css') }}">
+
     <style>
     body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
 
     <?php
@@ -31,7 +34,7 @@
             
         @show
         <div class = 'row'>
-            <div class = 'col-lg-1'>
+            <div class = 'col-sm-1'>
                 <div class="wrapper">
                     <!-- Sidebar -->
                     <nav id="sidebar">
@@ -82,11 +85,11 @@
                             AdminView();
                              ?>                           
                             <li>
-                                <br>
-                                <a href="#">Contact us</a>
+                                <br><br><br><br>
+                                <a href="#">Contact Us</a>
                             </li>
                             <li>
-                                <a href="{{ url('/logout') }}">Logout</a>
+                                <a href="{{ url('/logout') }}">LOGOUT</a>
                             </li>
                         </ul>
                     </nav>

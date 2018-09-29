@@ -19,6 +19,8 @@ class VenuesSeeder extends Seeder
         $Venue1 = Venue::create([
         	'name' => 'Gwdihw Cafe bar',
         	'city' => 'Cardiff',
+            'venue_type' => 'Live Music Venue',
+            'description' => 'Daytime cafe/bar with a beer garden, becomes a live music venue at night, for indie, soul and more.',
         	'street_address' => '6 Guildford Cres',
         	'post_code' => 'CF10 2HJ',
         	'longitude' => -3.170749,
@@ -28,6 +30,8 @@ class VenuesSeeder extends Seeder
         $Venue2 = Venue::create([
         	'name' => 'Tramshed',
         	'city' => 'Cardiff',
+            'venue_type' => 'Music and Arts Venue',
+            'description' => 'Tramshed is a music and arts venue in Cardiff, Wales, located in a Grade II-listed building that was once the old tram depot for west Cardiff.',
         	'street_address' => 'Clare Road',
         	'post_code' => 'CF11 6QP',
         	'longitude' => -3.186506,
@@ -37,6 +41,8 @@ class VenuesSeeder extends Seeder
         $Venue3 = Venue::create([
         	'name' => 'Clwb lfor Bach',
         	'city' => 'Cardiff',
+            'venue_type' => 'Live Music Venue and Nightclub',
+            'description' => 'Rock club focuses on homegrown acts, with low key shows by big names, but also features dance music.',
         	'street_address' => '11 Womanby Street',
         	'post_code' => 'CF10 1BR',
         	'longitude' => -3.181422,
@@ -46,6 +52,8 @@ class VenuesSeeder extends Seeder
         $Venue4 = Venue::create([
         	'name' => 'The Globe',
         	'city' => 'Cardiff',
+            'venue_type' => 'Live Music Venue',
+            'description' => 'Former cinema with a balcony and an auditorium, hosting well-known rock bands, comedians and DJs.',
         	'street_address' => '125 Albany Road',
         	'post_code' => 'CF24 3NS',
         	'longitude' => -3.165217,
@@ -55,6 +63,8 @@ class VenuesSeeder extends Seeder
         $Venue5 = Venue::create([
         	'name' => 'Motorpoint Arena',
         	'city' => 'Cardiff',
+            'venue_type' => 'Exhibition Centre and Events Arena',
+            'description' => 'Motorpoint Arena Cardiff is an indoor exhibition centre and events arena located in Cardiff, the capital of Wales, and was opened on 10 September 1993 by singer Shirley Bassey.',
         	'street_address' => 'Mary Ann Street',
         	'post_code' => 'CF10 2EQ',
         	'longitude' => -3.171721,
@@ -64,6 +74,8 @@ class VenuesSeeder extends Seeder
         $Venue6 = Venue::create([
         	'name' => 'The Moon',
         	'city' => 'Cardiff',
+            'venue_type' => 'Music Venue, Bar and Club',
+            'description' => 'From folk to reggae, hip hop to bebop, this high-energy bar offers live bands and regular guest DJs.',
         	'street_address' => '3 Womanby Street',
         	'post_code' => 'CF10 1BR',
         	'longitude' => -3.181597,
@@ -73,6 +85,8 @@ class VenuesSeeder extends Seeder
         $Venue7 = Venue::create([
         	'name' => 'Brewhouse',
         	'city' => 'Cardiff',
+            'venue_type' => 'Live Music and Sport Venue',
+            'description' => ' ',
         	'street_address' => '49 St Mary Street',
         	'post_code' => 'CF10 1AD',
         	'longitude' => -3.177321,
@@ -82,6 +96,8 @@ class VenuesSeeder extends Seeder
         $Venue8 = Venue::create([
         	'name' => 'Cafe Jazz',
         	'city' => 'Cardiff',
+            'venue_type' => 'Jazz, Blues and Food Venue',
+            'description' => 'Hotel venue with live jazz and blues most nights, bar food and a restaurant with global flavours.',
         	'street_address' => '21 St Mary Street',
         	'post_code' => 'CF10 1PL',
         	'longitude' => -3.178385,

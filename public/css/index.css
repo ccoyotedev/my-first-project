@@ -6,7 +6,11 @@
 
 #map {
 	z-index: 0;
-	padding-left: 0px
+	padding-left: 0px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    width:100%;
 }
 
 /*sidebar*/
@@ -17,11 +21,16 @@
     max-width: 250px;
     min-height: 100vh;
     margin-left:-15px;
+    padding-left: 10px;
+    padding-top:10px;
+    border-right:2px solid black;  
 
-    background: rgb(57,52,110, 0.9) ;
-    color: #fff;
+    background: linear-gradient(to left, #031d47, black); ;
+    color: orange;
     transition: all 0.3s;
     position: fixed;
+    text-transform: capitalize;
+
 }
 
 #sidebar h3 {
@@ -32,12 +41,12 @@
 }
 #sidebar p {
 	font-family: RolletteQaku;
-	color:orange;
 	font-size: 50px;
-}
+    color: orange;
+ }
 #sidebar a {
-	color:orange;
 	font-family: arial;
+    color: white;
 }
 
 #sidebar.active {
@@ -77,15 +86,93 @@ a[data-toggle="collapse"] {
 
 /*Venues*/
 
-#venue_list h1 {
-    text-align: right;
-}
 
 .card {
-    margin-bottom: 5vh;
+    margin-bottom: 4vh;
+    background-color: black;
+    color:white; 
+    border: 3px solid orange;
 }
+
+.header {
+    text-align: center;
+}
+.card-title {
+    text-shadow: 1px 1px navy,
+        -1px 1px navy,
+        -1px -1px navy,
+        1px -1px navy;
+}
+
 
 .glow {
     background-color: #ffc107;
     color: black;
 }
+.venue-list {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-left: 35px;
+}
+
+.venue-list h1 {
+    color: orange;
+}
+
+/*add event form*/
+
+.add-event-form {
+    margin-top: 5vh;
+    margin-bottom:10vh;
+    background-color: white;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    border: 3px solid orange;
+
+}
+
+.add-event-form h1 {
+    font-family: RolletteQaku;
+    font-size: 75px;
+    text-align: center;
+
+}
+
+.add-event-form .btn {
+    float: right;
+}
+
+/*icons*/
+
+.favourite-icon {
+    font-size:25px;
+}
+
+a {
+    color:white;
+}
+
+.favourite-icon:hover {
+    color: orange;
+}
+
+
+.favourite-glow {
+    color:orange;
+}
+
+.favourite-not-glow {
+    color:white;
+}
+
+.remove-icon {
+
+}
+
+/*events*/
+
+#interests a {
+    color: navy;
+}
+

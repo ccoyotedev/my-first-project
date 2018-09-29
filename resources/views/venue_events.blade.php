@@ -2,7 +2,18 @@
 
 @section('content')
 <div class="col-sm-10">
-	<h1 style='text-align: center; padding-bottom:2vh;'> {{$venue->name}}</h1>
+	<div class='row'>
+		<div class='col-sm-6'>
+			<h1 style='text-align: center; padding-bottom:2vh;'> {{$venue->name}}</h1>
+		</div>
+		<div class='col-sm-6'>
+			<h4> {{$venue->venue_type}} </h4>
+		</div>
+	</div>
+	<div class="row">
+		<p> {{$venue->description}} </p>
+	</div>
+	
 	@foreach ($events as $event)
 		<div class="row">
 			<div class="col-sm-1"></div>
@@ -48,7 +59,7 @@
 			</div>
 
 			<div class="col-sm-4">
-				<img src= "/css/img/placeholder.jpg" width="200" height="200">
+				<img src= "{{ $event->image }}" width="200" height="200">
 			</div>
 			<div class="col-sm-1"></div>
 		</div>

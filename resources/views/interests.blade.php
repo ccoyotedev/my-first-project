@@ -1,7 +1,7 @@
 @extends('layouts/main')
 
 @section('content')
-<div class="col-sm-10">
+<div class="col-sm-10" id='interests'>
 	<h1 style='text-align: center; padding-bottom:2vh;'> Interests </h1>
 	@foreach ($events as $event)
 		<div class="row">
@@ -51,7 +51,7 @@
 			</div>
 
 			<div class="col-sm-4">
-				<img src= "/css/img/placeholder.jpg" width="200" height="200">
+				<img src= "{{ $event->image }}" width="200" height="200">
 			</div>
 			<div class="col-sm-1"></div>
 		</div>

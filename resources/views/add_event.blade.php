@@ -1,7 +1,13 @@
 @extends('layouts/main')
+@section('map')
+<div class = 'row'>
+    <div class = 'col-lg-12 map' id='map'></div>
+</div>
+@endsection
 
 @section('content')
-<div class='col-lg-11'>
+<div class="col-sm-1"></div>
+<div class='col-lg-9 add-event-form'>
 	<h1>{{$venue->name}}</h1>
 	<form method="POST" action= "{{ route('event.store', $venue) }}">
 		{{ csrf_field() }}
@@ -66,5 +72,5 @@
             Add Event
 	</form>
 </div>
-
+<div class="col-sm-1"></div>
 @endsection

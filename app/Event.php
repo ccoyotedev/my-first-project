@@ -17,6 +17,7 @@ class Event extends Model
     	'end_time',
     	'age_restriction',
     	'genre',
+        'image',
     	'description',
     	'ticket_price',
     	'ticket_link',
@@ -47,6 +48,11 @@ class Event extends Model
         } else {
             return false;
         }
+
+    }
+
+    public function getImage() {
+        $image = $this->image;
 
     }
 }

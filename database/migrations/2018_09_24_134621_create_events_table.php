@@ -23,6 +23,7 @@ class CreateEventsTable extends Migration
             $table->string('age_restriction');
             $table->string('genre');
             $table->integer('ticket_price');
+            $table->string('image')->default('/css/img/placeholder.jpg');
             $table->string('description', 500);
             $table->string('ticket_link');
             $table->integer('created_by')->unsigned();
