@@ -7,9 +7,14 @@
 @endsection
 
 @section('content')
-<div class='col-lg-11 venue-list' id='venue_list'>
+<div class='col-lg-11 venue-list' id='venue-list'>
 	<div class='row header'>
-		<h1>Cardiff</h1>
+		<div class="col-sm-6">
+			<h1>Venues</h1>
+		</div>
+		<div class="col-sm-6"> 
+			<h2>Cardiff</h2>
+		</div>
 	</div>
 	<div class = 'row'>
 	@foreach ($venues as $venue)
@@ -21,8 +26,8 @@
 				    		<h5 class="card-title">{{ $venue->name }}</h5>
 				    	</div>
 				    	<div class='col-sm-2'>
-				    		<a href="#" class="favourite-button @if($venue->userFavourited) favourite-glow @endif" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
-				    			<i class="fa fa-heart favourite-icon"></i>
+				    		<a href="#" class="favourite-button" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
+				    			<i class="far fa-heart favourite-icon @if($venue->userFavourited) fa favourite-glow @endif"></i>
 				    		</a>
 				    	</div>
 				    </div>
@@ -33,7 +38,7 @@
 					</p>
 
 				    <a href="{{ route('events.show', $venue) }}" class="btn btn-outline-warning">Events</a>
-				    <!-- <a href="#" class="btn btn-outline-warning favourite-button @if($venue->userFavourited) glow @endif" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">Favourite</a> -->
+				    
 			  	</div>
 			</div>
 		</div>
@@ -55,13 +60,15 @@
 				$.ajax({
 					url: url,
 					complete: function(jqXHR, textStatus) {
-						if (thisButton.hasClass('favourite-glow')) {
-							thisButton.removeClass('favourite-glow');
-							thisButton.addClass('favourite-not-glow');
+						if (thisButton.children().hasClass('fa')) {
+							thisButton.children().removeClass('fa');
+							thisButton.children().removeClass('favourite-glow');
+							thisButton.children().addClass('far');
 
 						} else {
-							thisButton.removeClass('favourite-not-glow');
-							thisButton.addClass('favourite-glow');
+							thisButton.children().removeClass('far');
+							thisButton.children().addClass('fa');
+							thisButton.children().addClass('favourite-glow');
 						}
 					}
 				})

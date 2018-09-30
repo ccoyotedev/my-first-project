@@ -7,11 +7,15 @@
 @endsection
 
 @section('content')
-<div class='col-sm-11 venue-list' id='venue_list'>
-	<h1>Favourites</h1>
+<div class='col-sm-11 venue-list' id='favourite-venue-list'>
+	<div class="row header">
+		<div class="col-sm-12">
+			<h1>Favourites</h1>
+		</div>
+	</div>
 	<div class = 'row'>
 	@foreach ($venues as $venue)
-		<div class="col-md-4">
+		<div class="col-sm-4 {{$venue->id}}">
 		    <div class="card venue-info">
 				<div class="card-body">
 					<div class="row">
@@ -19,7 +23,7 @@
 				    		<h5 class="card-title">{{ $venue->name }}</h5>
 				    	</div>
 				    	<div class="col-sm-2">
-				    		<i class="fas fa-times"></i>
+				    		<a href="#" class="remove-button" data-url="{{ route('venue.unfavourite', ['venue' => $venue])}}"'><i class="fas fa-times remove-icon"></i></a>
 				    	</div>
 				    </div>
 				    <h6> {{$venue->venue_type}} </h6>
@@ -36,4 +40,28 @@
 	@endforeach
 	</div>
 </div>
+@endsection
+
+@section('script')
+
+	<script type="text/javascript">
+
+		$(function(){
+
+			$('.remove-button').on('click', function(){
+				var thisButton = $(this);
+				var url = thisButton.data('url');
+
+				$.ajax({
+					url: url,
+					complete: function(jqXHR, textStatus) {
+						thisButton.parent().parent().parent().parent().parent().remove();
+					}
+				})
+
+				return false;
+			});
+		});
+
+	</script>
 @endsection

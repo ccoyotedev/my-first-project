@@ -23,9 +23,9 @@
     margin-left:-15px;
     padding-left: 10px;
     padding-top:10px;
-    border-right:2px solid black;  
+    border-right:2px solid #08003f;  
 
-    background: linear-gradient(to left, #031d47, black); ;
+    background: linear-gradient(to left, #08003f, black);
     color: orange;
     transition: all 0.3s;
     position: fixed;
@@ -86,17 +86,23 @@ a[data-toggle="collapse"] {
 
 /*Venues*/
 
-
-.card {
+.venue-info.card {
     margin-bottom: 4vh;
+    margin-right: -0.5vw;
     background-color: black;
     color:white; 
-    border: 3px solid orange;
+
+    margin-top: 0px;
+    width: 273px;
+    max-height: 273px;
+    padding-top:1vh;
 }
 
 .header {
-    text-align: center;
+    text-align: right;
+    color: orange;
 }
+
 .card-title {
     text-shadow: 1px 1px navy,
         -1px 1px navy,
@@ -104,21 +110,29 @@ a[data-toggle="collapse"] {
         1px -1px navy;
 }
 
+#venue-list .card-body {
+    padding-bottom: 30px;
+    max-height: 220px;
+    height: 220px;
 
-.glow {
-    background-color: #ffc107;
-    color: black;
 }
+
 .venue-list {
     background-color: rgba(0, 0, 0, 0.5);
     padding-left: 35px;
 }
 
-.venue-list h1 {
-    color: orange;
+
+.card-body {
+    max-height: 250px;
+    height: 250px;
 }
 
 /*add event form*/
+
+.event-container {
+
+}
 
 .add-event-form {
     margin-top: 5vh;
@@ -143,11 +157,29 @@ a[data-toggle="collapse"] {
     float: right;
 }
 
+#event-list {
+    background-color:white;
+    margin-top: 5px;
+    padding-top: 10px;
+    border: 5px solid orange;
+}
+
+.card {
+    margin-top: 10px;
+    background-color:white;
+    color:black;
+    border: 3px solid orange;
+    width: 58vw;
+    max-height: 40vh;
+    padding-top:1vh;
+}
+
 /*icons*/
 
 .favourite-icon {
     font-size:25px;
 }
+
 
 a {
     color:white;
@@ -166,8 +198,13 @@ a {
     color:white;
 }
 
-.remove-icon {
+.remove-icon:hover {
+    color: orange;
+}
 
+.glow {
+    background-color: #ffc107;
+    color: black;
 }
 
 /*events*/

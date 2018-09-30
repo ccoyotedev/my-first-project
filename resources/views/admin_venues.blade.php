@@ -9,7 +9,9 @@
 @section('content')
 <div class='col-lg-11 venue-list' id='admin_venue_list'>
 	<div class='row header'>
-		<h1> Your Venues </h1>
+		<div class="col-sm-12">
+			<h1> Your Venues </h1>
+		</div>
 	</div>
 	<div class = 'row'>
 	@foreach ($venues as $venue)

@@ -31,6 +31,8 @@ Route::get('venues', 'ChordController@venuesView')->name("venues.view");
 
 Route::get('venue/{venue}', 'FavouriteController@register')->name("venue.favourite");
 
+Route::get('favourites/{venue}', 'FavouriteController@remove')->name("venue.unfavourite");
+
 Route::get('admin-venues', 'AdminController@adminVenuesView')->name("admin-venues.view");
 
 Route::get('venue/{venue}/events', 'EventController@view')->name('events.show');

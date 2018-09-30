@@ -28,6 +28,14 @@ class FavouriteController extends Controller
         }
     }
 
+    public static function remove(Venue $venue) {
+        $user_id = Auth::id();
+        $venue_id = $venue->id;
+
+        Favourite::where('user_id', $user_id)->where('venue_id', $venue_id)->delete();
+    }
+
+
     public static function viewFavourites() {
 
         $venues = Auth::user()->venues;

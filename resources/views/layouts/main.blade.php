@@ -99,7 +99,7 @@
                 @show
         </div>
     </div>
-
+<!-- map -->
     <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiY2djYnJvd24iLCJhIjoiY2ptOHZieHduMHNoeTNwbnR0d2NudGQ5biJ9.Q4Sn0qdYeMUt4BhYUf9X6A';
         const map = new mapboxgl.Map({
