@@ -12,7 +12,7 @@
 */
 
 Route::get('tinker', function () {
-	return view('js-playground');
+	return view('ajax');
 });
 
 Route::get('register', 'RegisterController@registerView')->name("register.view");
@@ -46,3 +46,5 @@ Route::get('interests', 'EventController@viewInterested')->name('user.interests'
 Route::get('favourites', 'FavouriteController@viewFavourites')->name('user.favourites');
 
 Route::get('venue/{venue}/events/{event}/register-interest', 'EventController@registerInterest')->name('event.interest');
+
+Route::get('venue-data', 'VenueController@data')->name('venue.data');
