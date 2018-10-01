@@ -11,4 +11,14 @@ class VenueController extends Controller
 
     	return Venue::all();
     }
+
+    public static function view($city) {
+
+    
+    	$cities = Venue::select('city')->groupBy('city')->get();
+
+    	$venues = Venue::where('city', $city)->get();
+
+    	return view('venues', compact('venues', 'cities'));
+    }
 }

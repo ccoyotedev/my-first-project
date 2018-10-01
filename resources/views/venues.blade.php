@@ -13,7 +13,16 @@
 			<h1>Venues</h1>
 		</div>
 		<div class="col-sm-6"> 
-			<h2>Cardiff</h2>
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    City
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					@foreach ($cities as $city)
+					    <a class="dropdown-item" href="{{ route('venues.city', $city->city) }}">{{ $city->city }}</a>
+					@endforeach
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class = 'row'>

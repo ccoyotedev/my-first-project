@@ -16,7 +16,7 @@ class VenuesSeeder extends Seeder
 
     	DB::table('venues')->truncate();
 
-        $Venue1 = Venue::create([
+        Venue::create([
         	'name' => 'Gwdihw Cafe bar',
         	'city' => 'Cardiff',
             'venue_type' => 'Live Music Venue',
@@ -27,7 +27,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.480032,
         ]);
 
-        $Venue2 = Venue::create([
+        Venue::create([
         	'name' => 'Tramshed',
         	'city' => 'Cardiff',
             'venue_type' => 'Music and Arts Venue',
@@ -38,7 +38,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.475301,
         ]);
 
-        $Venue3 = Venue::create([
+        Venue::create([
         	'name' => 'Clwb lfor Bach',
         	'city' => 'Cardiff',
             'venue_type' => 'Live Music Venue and Nightclub',
@@ -49,7 +49,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.480547,
         ]);
 
-        $Venue4 = Venue::create([
+        Venue::create([
         	'name' => 'The Globe',
         	'city' => 'Cardiff',
             'venue_type' => 'Live Music Venue',
@@ -60,7 +60,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.494295,
         ]);
 
-        $Venue5 = Venue::create([
+        Venue::create([
         	'name' => 'Motorpoint Arena',
         	'city' => 'Cardiff',
             'venue_type' => 'Exhibition Centre and Events Arena',
@@ -71,7 +71,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.478944,
         ]);
 
-        $Venue6 = Venue::create([
+        Venue::create([
         	'name' => 'The Moon',
         	'city' => 'Cardiff',
             'venue_type' => 'Music Venue, Bar and Club',
@@ -82,7 +82,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.480351,
         ]);
 
-        $Venue7 = Venue::create([
+        Venue::create([
         	'name' => 'Brewhouse',
         	'city' => 'Cardiff',
             'venue_type' => 'Live Music and Sport Venue',
@@ -93,7 +93,7 @@ class VenuesSeeder extends Seeder
         	'latitude' => 51.477766,
         ]);
 
-        $Venue8 = Venue::create([
+        Venue::create([
         	'name' => 'Cafe Jazz',
         	'city' => 'Cardiff',
             'venue_type' => 'Jazz, Blues and Food Venue',
@@ -102,6 +102,17 @@ class VenuesSeeder extends Seeder
         	'post_code' => 'CF10 1PL',
         	'longitude' => -3.178385,
         	'latitude' => 51.479127,
+        ]);
+
+        Venue::create([
+            'name' => 'Le Public Space',
+            'city' => 'Newport',
+            'venue_type' => 'Live Music Venue',
+            'description' => 'Compact, buzzing bar and music venue hosting gigs by up-and-coming bands and regular comedy nights.',
+            'street_address' => '14 High Street',
+            'post_code' => 'NP20 1FW',
+            'longitude' => -2.996891,
+            'latitude' => 51.589526,
         ]);
     }
 }

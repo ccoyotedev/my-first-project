@@ -44,30 +44,15 @@
                 <!-- Sidebar -->
                 <nav id="sidebar">
                     <div class="sidebar-header">
-                        <h3>Chord</h3>
+                        <a href=" {{ route('index') }}"><h3>Chord</h3><br><br></a>
                     </div>
 
                     <ul class="list-unstyled components">
-                        <a href=" {{ route('index') }}"><p>Menu</p></a>
                         <li>
                             <a href="{{ route('user.interests') }}">Interested</a>
                         </li>
                         <li>
                             <a href="{{ route('user.favourites') }}">Favourites</a>
-                        </li>
-                        <li>
-                            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Filter</a>
-                            <ul class="collapse list-unstyled" id="pageSubmenu">
-                                <li>
-                                    <a href="#">Filter 1</a>
-                                </li>
-                                <li>
-                                    <a href="#">Filter 2</a>
-                                </li>
-                                <li>
-                                    <a href="#">Filter 3</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="{{ route('venues.view') }}">Venues</a>
@@ -122,6 +107,8 @@
         zoom: 13
     });
 
+    window.map = map;
+
 
     let feature = {
         "type": "Feature",
@@ -150,7 +137,7 @@
                 for(var i=0; i<venue_array.length; i++) {
 
                     const venue = venue_array[i];
-                    feature.properties.description = venue.description;
+                    feature.properties.description = "<strong><a href='venue/" + venue.id + "/events' class='popup'>" + venue.name + "</a></strong><br>" + venue.venue_type;
                     feature.geometry.coordinates = [venue.longitude, venue.latitude];
                     features[i] = jQuery.extend(true, {}, feature)
                 }
@@ -210,8 +197,8 @@
 </script>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
 @section('script')
 @show
+
 </body>
 </html>

@@ -52,15 +52,33 @@ class EventsSeeder extends Seeder
         ]);
 
         Event::create([
-            'venue_id' => 1,
-            'title' => 'The Flim Flam',
-            'date' => Carbon::parse('2018-10-25'),
-            'start_time' => '20:00:00',
+            'venue_id' => 3,
+            'title' => 'Cleopatrick',
+            'date' => Carbon::parse('2018-10-2'),
+            'start_time' => '19:00:00',
             'end_time' => '23:00:00',
+            'age_restriction' => '16+',
+            'genre' => 'Rock',
+            'description' => 'This rock duo is formed of best mates, and they\'ve been making noise for as long as they can remember – from the age of four to be exact. Their sounds leans undeniably on rock, though the pair aren\'t happy with that. Never ones for complacency, the young innovators see their cuts as more than a genre. Unbound and visionary, you don\'t wanna miss their experimental live show.',
+            'ticket_price' => 6,
+            'image' => '/css/img/cleopatrick.jpg',
+            'ticket_link' => 'https://www.google.com',
+            'created_by' => 1,
+        ]);
+
+        Event::create([
+            'venue_id' => 3,
+            'title' => 'YUM!',
+            'date' => Carbon::parse('2018-10-5'),
+            'start_time' => '11:00:00',
+            'end_time' => '03:00:00',
             'age_restriction' => '18+',
-            'genre' => 'Disco',
-            'description' => 'Lets get down to it. Disco beats are back and back with a vengence. Flim Flam present to you a world of sounds.',
-            'ticket_price' => 10,
+            'genre' => 'Party Anthems',
+            'description' => 'Where else could you possibly need to be on a Friday night…. There’s simply no where else that will tantalise the musical pallet like YUM!
+
+                Party Anthems // Cult Classics // Dance floor Bangers',
+            'ticket_price' => 3,
+            'image' => '/css/img/yum.jpg',
             'ticket_link' => 'https://www.google.com',
             'created_by' => 1,
         ]);

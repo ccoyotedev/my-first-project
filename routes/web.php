@@ -29,6 +29,8 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('venues', 'ChordController@venuesView')->name("venues.view");
 
+Route::get('venues/{city}', 'VenueController@view')->name("venues.city");
+
 Route::get('venue/{venue}', 'FavouriteController@register')->name("venue.favourite");
 
 Route::get('favourites/{venue}', 'FavouriteController@remove')->name("venue.unfavourite");

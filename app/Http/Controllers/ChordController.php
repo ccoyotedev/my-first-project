@@ -16,10 +16,12 @@ class ChordController extends Controller {
 
     public function venuesView()
 	{
-		$venues = Venue::orderBy('name')->get();
+		$cities = Venue::select('city')->groupBy('city')->get();
+		
+		$venues = Venue::where('city', 'Cardiff')->get();
 
 		// show them!
-		return view('venues', compact('venues'));
+		return view('venues', compact('venues', 'cities'));
 	}
   
 
