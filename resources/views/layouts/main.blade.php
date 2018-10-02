@@ -50,6 +50,9 @@
 
                     <ul class="list-unstyled components">
                         <li>
+                            <a href="{{ route('events.view') }}">Events</a>
+                        </li>
+                        <li>
                             <a href="{{ route('venues.view') }}">Venues</a>
                         </li>
                         <li>
@@ -101,6 +104,7 @@
         crossorigin="anonymous"></script>
 
 <script>
+
     mapboxgl.accessToken = 'pk.eyJ1IjoiY2djYnJvd24iLCJhIjoiY2ptOHZieHduMHNoeTNwbnR0d2NudGQ5biJ9.Q4Sn0qdYeMUt4BhYUf9X6A';
     const map = new mapboxgl.Map({
         container: 'map',
@@ -108,93 +112,6 @@
         center: [-3.178, 51.48],
         zoom: 13
     });
-
-    window.map = map;
-
-
-    let feature = {
-        "type": "Feature",
-        "properties": {
-            "description": null,
-            "icon": "marker"
-        },
-        "geometry": {
-            "type": "Point",
-            "coordinates": [null, null]
-        }
-    };
-
-
-    map.on('load', function () {
-        // Add a layer showing the places.
-
-
-        let venues = $.ajax({
-            url: "{{ url('venue-data')}}",
-            dataType: 'json',
-            complete: function () {
-                var venue_array = venues.responseJSON;
-
-                var features = [];
-                for(var i=0; i<venue_array.length; i++) {
-
-                    const venue = venue_array[i];
-                    feature.properties.description = "<strong><a href='venue/" + venue.id + "/events' class='popup'>" + venue.name + "</a></strong><br>" + venue.venue_type;
-                    feature.geometry.coordinates = [venue.longitude, venue.latitude];
-                    features[i] = jQuery.extend(true, {}, feature)
-                }
-
-                map.addLayer({
-
-                    "id": "places",
-                    "type": "symbol",
-                    "source": {
-                        "type": "geojson",
-                        "data": {
-                            "type": "FeatureCollection",
-                            "features": features,
-                        }
-                    },
-                    "layout": {
-                        "icon-image": "{icon}-15",
-                        "icon-allow-overlap": true
-                    }
-                });
-            }
-        });
-
-    });
-
-
-    // When a click event occurs on a feature in the places layer, open a popup at the
-    // location of the feature, with description HTML from its properties.
-    map.on('click', 'places', function (e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = e.features[0].properties.description;
-
-        // Ensure that if the map is zoomed out such that multiple
-        // copies of the feature are visible, the popup appears
-        // over the copy being pointed to.
-        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-
-        new mapboxgl.Popup()
-            .setLngLat(coordinates)
-            .setHTML(description)
-            .addTo(map);
-    });
-
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'places', function () {
-        map.getCanvas().style.cursor = 'pointer';
-    });
-
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'places', function () {
-        map.getCanvas().style.cursor = '';
-    });
-
 
 </script>
 

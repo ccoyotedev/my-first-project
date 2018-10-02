@@ -38,6 +38,8 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('venues', 'ChordController@venuesView')->name("venues.view");
 
+Route::get('events', 'EventController@view')->name("events.view");
+
 Route::get('venues/{city}', 'VenueController@view')->name("venues.city");
 
 Route::get('venue/{venue}', 'FavouriteController@register')->name("venue.favourite");
@@ -46,9 +48,7 @@ Route::get('favourites/{venue}', 'FavouriteController@remove')->name("venue.unfa
 
 Route::get('admin-venues', 'AdminController@adminVenuesView')->name("admin-venues.view");
 
-Route::get('venue/{venue}/events', 'EventController@view')->name('events.show');
-
-Route::get('venue/{venue}/events/create', 'AdminController@addEventForm')->name('admin.addevent');
+Route::get('venue/{venue}/events', 'EventController@venueView')->name('events.show');
 
 Route::post('venue/{venue}/add-event', 'EventController@store')->name('event.store');
 

@@ -35,7 +35,28 @@ class EventController extends Controller
     }
 
 
-    public static function view(Venue $venue) {
+    public static function view() {
+
+        $cities = Venue::select('city')->groupBy('city')->get();
+
+        $venues = Venue::where('city', 'Cardiff')->get();
+
+        foreach ($venues as $venue) {
+            $cityName = $venue->city;
+        }
+
+        return $cityName;
+
+
+        $today = date('Y-m-d');
+        $events = Event::where('date', '>=', $today)->orderBy('date')->paginate(5);
+
+        return view('events', compact('events','cities'));
+    }
+
+
+
+    public static function venueView(Venue $venue) {
 
         $today = date('Y-m-d');
         

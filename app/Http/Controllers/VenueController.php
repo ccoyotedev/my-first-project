@@ -8,9 +8,10 @@ use App\Event;
 
 class VenueController extends Controller
 {
-    public static function data() {
-    	$today = date('Y-m-d');
-		$venue_ids = Event::where('date', $today)->select('venue_id')->get();
+    public function data(Request $request) {
+
+    	$day = $request->input('date', date('Y-m-d'));
+		$venue_ids = Event::where('date', $day)->select('venue_id')->get();
 		$venues = [];
 		foreach($venue_ids as $venue_id) {
 			$venues[] = Venue::where('id', $venue_id->venue_id)->first();
@@ -19,9 +20,9 @@ class VenueController extends Controller
     	return $venues;
     }
 
-    public static function view($city) {
+    public function view($city) {
 
-    
+        
     	$cities = Venue::select('city')->groupBy('city')->get();
 
     	$venues = Venue::where('city', $city)->get();

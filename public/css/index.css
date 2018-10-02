@@ -142,21 +142,26 @@ a[data-toggle="collapse"] {
 
 /*add event form*/
 
-.event-container {
-
-}
-
-.add-event-form {
-    margin-top: 5vh;
-    margin-bottom:10vh;
-    background-color: white;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+.modal-content {
     border: 3px solid orange;
-
 }
+
+#add-event .form-control {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: .375rem .75rem;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
 
 .add-event-form h1 {
     font-family: RolletteQaku;
@@ -185,6 +190,7 @@ a[data-toggle="collapse"] {
     max-height: 40vh;
     padding-top:1vh;
 }
+
 
 /*icons*/
 
@@ -221,7 +227,32 @@ a {
 
 /*events*/
 
+#interests {
+    background-color:white;
+    margin-top: 5px;
+    padding-top: 10px;
+    border: 5px solid orange;
+}
+
 #interests a {
     color: navy;
 }
 
+#events {
+    background-color:white;
+    margin-top: 5px;
+    padding-top: 10px;
+    border: 5px solid orange;
+}
+
+#events a {
+    color:navy;
+}
+
+a.purchase {
+    color:black;
+}
+
+#events-header {
+    
+}

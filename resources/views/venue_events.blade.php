@@ -55,7 +55,7 @@
 						</div>
 					</p>
 				</div>
-				<div class='row' id='event-buttons'>
+				<div class='row event-buttons'>
 					<div class="col-sm-4">
 						<button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample{{$event->id}}" aria-expanded="false" aria-controls="collapseExample">More info</button>
 					</div>

@@ -16,8 +16,8 @@ class ChordController extends Controller {
 
     public function venuesView()
 	{
-		$cities = Venue::select('city')->groupBy('city')->get();
 		
+		$cities = Venue::select('city')->groupBy('city')->get();
 		$venues = Venue::where('city', 'Cardiff')->get();
 
 		// show them!

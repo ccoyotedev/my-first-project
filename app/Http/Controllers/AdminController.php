@@ -21,14 +21,4 @@ class AdminController extends Controller {
     }
 
 
-
-
-    public static function addEventForm(Venue $venue) {
-  
-    	return view('add_event', compact('venue'));
-    }
-
-
-
-
 }
