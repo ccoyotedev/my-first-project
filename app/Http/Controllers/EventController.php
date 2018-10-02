@@ -36,8 +36,10 @@ class EventController extends Controller
 
 
     public static function view(Venue $venue) {
+
+        $today = date('Y-m-d');
         
-        $events = Event::where('venue_id', $venue->id )->orderBy('date')->get();
+        $events = Event::where('venue_id', $venue->id )->where('date', '>=' , $today)->orderBy('date')->get();
         return view('venue_events', compact('venue', 'events'));        
     }
 

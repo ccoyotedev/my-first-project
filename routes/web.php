@@ -12,7 +12,16 @@
 */
 
 Route::get('tinker', function () {
-	return view('ajax');
+	$today = date('Y-m-d');
+	$venue_ids = App\Event::where('date', $today)->select('venue_id')->get();
+	$venues = [];
+	foreach($venue_ids as $venue_id) {
+		$venues[] = App\Venue::where('id', $venue_id->venue_id)->first();
+	}
+	return App\Venue::all();
+
+
+	
 });
 
 Route::get('register', 'RegisterController@registerView')->name("register.view");

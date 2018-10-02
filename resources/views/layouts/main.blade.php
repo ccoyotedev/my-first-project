@@ -15,6 +15,7 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet'/>
 
+
     <!-- fun icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -49,14 +50,15 @@
 
                     <ul class="list-unstyled components">
                         <li>
+                            <a href="{{ route('venues.view') }}">Venues</a>
+                        </li>
+                        <li>
                             <a href="{{ route('user.interests') }}">Interested</a>
                         </li>
                         <li>
                             <a href="{{ route('user.favourites') }}">Favourites</a>
                         </li>
-                        <li>
-                            <a href="{{ route('venues.view') }}">Venues</a>
-                        </li>
+                        
                         <?php
                         function adminView() {
                         $user_id = Auth::id();

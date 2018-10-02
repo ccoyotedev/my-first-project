@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Venue;
+use App\Event;
 
 class VenueController extends Controller
 {
     public static function data() {
+    	$today = date('Y-m-d');
+		$venue_ids = Event::where('date', $today)->select('venue_id')->get();
+		$venues = [];
+		foreach($venue_ids as $venue_id) {
+			$venues[] = Venue::where('id', $venue_id->venue_id)->first();
+		}
 
-    	return Venue::all();
+    	return $venues;
     }
 
     public static function view($city) {
@@ -19,6 +26,8 @@ class VenueController extends Controller
 
     	$venues = Venue::where('city', $city)->get();
 
-    	return view('venues', compact('venues', 'cities'));
+
+
+    	return view('venues', compact('venues', 'cities', 'city'));
     }
 }

@@ -70,7 +70,7 @@ class EventsSeeder extends Seeder
             'venue_id' => 3,
             'title' => 'YUM!',
             'date' => Carbon::parse('2018-10-5'),
-            'start_time' => '11:00:00',
+            'start_time' => '23:00:00',
             'end_time' => '03:00:00',
             'age_restriction' => '18+',
             'genre' => 'Party Anthems',

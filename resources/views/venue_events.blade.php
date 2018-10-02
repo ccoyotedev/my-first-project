@@ -31,11 +31,11 @@
 			<div class="col-sm-1"></div>
 			<div class="col-sm-7">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-5">
 						{{ date('d F Y', strtotime($event->date)) }}
 					</div>
-					<div class="col-sm-6">
-						{{$event->start_time}}-{{$event->end_time}}
+					<div class="col-sm-5">
+						{{date('H:i', strtotime($event->start_time)) }}-{{date('H:i', strtotime($event->end_time))}}
 					</div>
 					<div class="col-sm-2">
 						{{$event->age_restriction}}

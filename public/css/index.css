@@ -132,6 +132,14 @@ a[data-toggle="collapse"] {
     height: 250px;
 }
 
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+}
+
 /*add event form*/
 
 .event-container {
