@@ -58,12 +58,38 @@
 				</div>
 			</div>
 
-			<div class="col-sm-4">
+			<div class="col-sm-3">
 				<img src= "{{ $event->image }}" width="150" height="150">
 			</div>
-			<div class="col-sm-1"></div>
+			<div class="col-sm-1">
+				<a href="#" class="remove-button" data-url="{{ route('event.uninterest', ['event' => $event])}}"><i class="fas fa-times remove-icon"></i></a>
+			</div>
 		</div>
 		<hr>
 	@endforeach
 </div>
+@endsection
+
+@section('script')
+
+	<script type="text/javascript">
+
+		$(function(){
+
+			$('.remove-button').on('click', function(){
+				var thisButton = $(this);
+				var url = thisButton.data('url');
+
+				$.ajax({
+					url: url,
+					complete: function(jqXHR, textStatus) {
+						thisButton.parent().parent().remove();
+					}
+				})
+
+				return false;
+			});
+		});
+
+	</script>
 @endsection

@@ -22,7 +22,8 @@ class VenueController extends Controller
 
     public function view($city) {
 
-        
+        if ( empty($city) ) $city = 'Cardiff';
+
     	$cities = Venue::select('city')->groupBy('city')->get();
 
     	$venues = Venue::where('city', $city)->get();

@@ -36,11 +36,9 @@ Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('logout', 'Auth\LoginController@logout');
 
-Route::get('venues', 'ChordController@venuesView')->name("venues.view");
+Route::get('events/{city}', 'EventController@view')->name("events.view");
 
-Route::get('events', 'EventController@view')->name("events.view");
-
-Route::get('venues/{city}', 'VenueController@view')->name("venues.city");
+Route::get('venues/{city}', 'VenueController@view')->name("venues.view");
 
 Route::get('venue/{venue}', 'FavouriteController@register')->name("venue.favourite");
 
@@ -57,5 +55,7 @@ Route::get('interests', 'EventController@viewInterested')->name('user.interests'
 Route::get('favourites', 'FavouriteController@viewFavourites')->name('user.favourites');
 
 Route::get('venue/{venue}/events/{event}/register-interest', 'EventController@registerInterest')->name('event.interest');
+
+Route::get('interests/{event}', 'InterestController@delete')->name("event.uninterest");
 
 Route::get('venue-data', 'VenueController@data')->name('venue.data');

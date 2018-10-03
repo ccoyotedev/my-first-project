@@ -9,17 +9,20 @@
 @section('content')
 <div class='col-lg-11 venue-list' id='venue-list'>
 	<div class='row header'>
-		<div class="col-sm-6">
+		<div class="col-sm-7">
 			<h1>Venues</h1>
 		</div>
-		<div class="col-sm-6"> 
+		<div class="col-sm-2">
+			<h3> {{ $city or "Cardiff" }}</h3>
+		</div>
+		<div class="col-sm-3"> 
 			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='float:left'>
 				    City
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					@foreach ($cities as $city)
-					    <a class="dropdown-item" href="{{ route('venues.city', $city->city) }}">{{ $city->city }}</a>
+					    <a class="dropdown-item" href="{{ route('venues.view', $city->city) }}">{{ $city->city }}</a>
 					@endforeach
 				</div>
 			</div>

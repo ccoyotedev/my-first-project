@@ -55,8 +55,8 @@
 										</div>
 										<fieldset class="form-group">
 										    <div class="row">
-											    <legend class="col-form-label col-sm-2 pt-0">Age Restriction</legend>
-											    <div class="col-sm-10">
+											    <legend class="col-form-label col-sm-5 pt-0">Age Restriction</legend>
+											    <div class="col-sm-7">
 											        <div class="form-check">
 											            <input class="form-check-input" type="radio" name="age-restriction" id="age-restriction1" value="0" checked>
 											            <label class="form-check-label" for="age-restriction1">
@@ -86,6 +86,12 @@
 										    <label for="description">Description</label>
 										    <input type="text" class="form-control" name="description" id="description" maxlength="500">
 										</div>
+										<div class="form-group">
+									        <label for="image">Event Image:</label>
+									        <input type="file"
+									               id="image" name="image"
+									               accept="image/png, image/jpeg" />
+									    </div>
 										<div class="form-group">
 										    <label for="ticket-price">Ticket Price</label>
 										    <input type="number" class="form-control" name="ticket-price" id="ticket-price">

@@ -50,10 +50,10 @@
 
                     <ul class="list-unstyled components">
                         <li>
-                            <a href="{{ route('events.view') }}">Events</a>
+                            <a href="{{ route('events.view', ['city' => 'Cardiff']) }}">Events</a>
                         </li>
                         <li>
-                            <a href="{{ route('venues.view') }}">Venues</a>
+                            <a href="{{ route('venues.view', ['city' => 'Cardiff']) }}">Venues</a>
                         </li>
                         <li>
                             <a href="{{ route('user.interests') }}">Interested</a>

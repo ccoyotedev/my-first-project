@@ -57,7 +57,7 @@
                         Forgot Your Password?
                     </a>
                     <a class='btn btn-link' href="{{ route('register')}}">
-                        Havnt got an account?
+                        Haven't got an account?
                     </a>
                    
                 </div>

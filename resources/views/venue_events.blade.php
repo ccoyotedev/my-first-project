@@ -10,13 +10,18 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-9" id='event-list'>
 	<div class='row'>
-		<div class='col-sm-1'></div>
+		<div class="col-sm-1"></div>
 		<div class='col-sm-6'>
 			<h1 style='text-align: center; padding-bottom:2vh;'> {{$venue->name}}</h1>
 		</div>
-		<div class='col-sm-5'>
-			<h4> {{$venue->venue_type}} </h4>
+		<div class='col-sm-4'>
+			<h5> {{$venue->venue_type}} </h5>
 		</div>
+		<div class='col-sm-1'>
+    		<a href="#" class="favourite-button" id="favourite-anchor" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
+    			<i class="far fa-heart favourite-icon @if($venue->userFavourited) fa favourite-glow @endif"></i>
+    		</a>
+    	</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-1"></div>
@@ -100,6 +105,32 @@
 							thisButton.removeClass('glow');
 						} else {
 							thisButton.addClass('glow');
+						}
+					}
+				})
+
+				return false;
+			});
+		
+
+
+
+			$('.favourite-button').on('click', function(){
+				var thisButton = $(this);
+				var url = thisButton.data('url');
+
+				$.ajax({
+					url: url,
+					complete: function(jqXHR, textStatus) {
+						if (thisButton.children().hasClass('fa')) {
+							thisButton.children().removeClass('fa');
+							thisButton.children().removeClass('favourite-glow');
+							thisButton.children().addClass('far');
+
+						} else {
+							thisButton.children().removeClass('far');
+							thisButton.children().addClass('fa');
+							thisButton.children().addClass('favourite-glow');
 						}
 					}
 				})

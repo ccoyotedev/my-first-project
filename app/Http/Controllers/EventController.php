@@ -33,30 +33,29 @@ class EventController extends Controller
   
         return view('admin_venues', compact('venues'));
     }
+    
 
+    public function view($city) {
 
-    public static function view() {
+        if ( empty($city) ) $city = 'Cardiff';
 
         $cities = Venue::select('city')->groupBy('city')->get();
 
-        $venues = Venue::where('city', 'Cardiff')->get();
-
-        foreach ($venues as $venue) {
-            $cityName = $venue->city;
-        }
-
-        return $cityName;
-
-
         $today = date('Y-m-d');
-        $events = Event::where('date', '>=', $today)->orderBy('date')->paginate(5);
 
-        return view('events', compact('events','cities'));
+        $events = Event::join('venues', 'venues.id', '=', 'events.venue_id')
+            ->select('events.*')
+            ->orderBy('events.date', 'asc') // 'desc'
+            ->where('venues.city', $city)
+            ->where('events.date', '>=', $today)
+            ->paginate(5);
+
+        return view('events', compact('events','cities', 'city'));
     }
 
 
 
-    public static function venueView(Venue $venue) {
+    public function venueView(Venue $venue) {
 
         $today = date('Y-m-d');
         
@@ -66,7 +65,15 @@ class EventController extends Controller
 
     public static function viewInterested() {
 
-        $events = Auth::user()->events;
+        $today = date('Y-m-d');
+
+        $events = Event::join('interests', 'interests.event_id', '=', 'events.id')
+            ->select('events.*')
+            ->orderBy('events.date', 'asc')
+            ->where('interests.user_id', '=', Auth::id())
+            ->where('events.date', '>=', $today)
+            ->paginate(5);
+
       
         return view('interests', compact('events'));
     }

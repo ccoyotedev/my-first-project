@@ -29,8 +29,8 @@
     padding-top:10px;
     border-right:2px solid #08003f;  
 
-    background: linear-gradient(to left, #08003f, black);
-    color: orange;
+    background: linear-gradient(to left, #00003B, black);
+    color: #FB9902;
     transition: all 0.3s;
     position: fixed;
     text-transform: capitalize;
@@ -39,18 +39,18 @@
 
 #sidebar h3 {
 	font-family: RolletteQaku;
-	color:orange;
+	color:#FB9902;
 	font-size: 60px;
 	margin-bottom: -15px;
 }
 #sidebar p {
 	font-family: RolletteQaku;
 	font-size: 50px;
-    color: orange;
+    color: #FB9902;
  }
 #sidebar a {
 	font-family: arial;
-    color: white;
+    color: #F5F5F5;
 }
 
 #sidebar.active {
@@ -90,11 +90,13 @@ a[data-toggle="collapse"] {
 
 /*Venues*/
 
+
+
 .venue-info.card {
     margin-bottom: 4vh;
     margin-right: -0.5vw;
     background-color: black;
-    color:white; 
+    color:#F5F5F5; 
 
     margin-top: 0px;
     width: 273px;
@@ -104,14 +106,14 @@ a[data-toggle="collapse"] {
 
 .header {
     text-align: right;
-    color: orange;
+    color: #FB9902;
 }
 
 .card-title {
-    text-shadow: 1px 1px navy,
-        -1px 1px navy,
-        -1px -1px navy,
-        1px -1px navy;
+    text-shadow: 1px 1px #00003B,
+        -1px 1px #00003B,
+        -1px -1px #00003B,
+        1px -1px #00003B;
 }
 
 #venue-list .card-body {
@@ -143,7 +145,7 @@ a[data-toggle="collapse"] {
 /*add event form*/
 
 .modal-content {
-    border: 3px solid orange;
+    border: 3px solid #FB9902;
 }
 
 #add-event .form-control {
@@ -175,17 +177,17 @@ a[data-toggle="collapse"] {
 }
 
 #event-list {
-    background-color:white;
+    background-color:#F5F5F5;
     margin-top: 5px;
     padding-top: 10px;
-    border: 5px solid orange;
+    border: 5px solid #FB9902;
 }
 
 .card {
     margin-top: 10px;
-    background-color:white;
+    background-color:#F5F5F5;
     color:black;
-    border: 3px solid orange;
+    border: 3px solid #FB9902;
     width: 58vw;
     max-height: 40vh;
     padding-top:1vh;
@@ -200,24 +202,33 @@ a[data-toggle="collapse"] {
 
 
 a {
-    color:white;
+    color:#F5F5F5;
+}
+
+#favourite-anchor {
+    color:black;
+}
+
+#favourite-anchor .favourite-icon {
+    font-size:40px;
 }
 
 .favourite-icon:hover {
-    color: orange;
+    color: #FB9902;
 }
 
 
 .favourite-glow {
-    color:orange;
+    color:#FB9902;
 }
 
-.favourite-not-glow {
-    color:white;
+#event-list .favourite-not-glow {
+    color:black;
 }
+
 
 .remove-icon:hover {
-    color: orange;
+    color: #FB9902;
 }
 
 .glow {
@@ -228,25 +239,25 @@ a {
 /*events*/
 
 #interests {
-    background-color:white;
+    background-color:#F5F5F5;
     margin-top: 5px;
     padding-top: 10px;
-    border: 5px solid orange;
+    border: 5px solid #FB9902;
 }
 
 #interests a {
-    color: navy;
+    color: #00003B;
 }
 
 #events {
-    background-color:white;
+    background-color:#F5F5F5;
     margin-top: 5px;
     padding-top: 10px;
-    border: 5px solid orange;
+    border: 5px solid #FB9902;
 }
 
 #events a {
-    color:navy;
+    color:#00003B;
 }
 
 a.purchase {

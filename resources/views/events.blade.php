@@ -13,7 +13,7 @@
 			<div class="col-sm-4">
 				<h1 style='text-align: center; padding-bottom:2vh;'> Events </h1>
 			</div>
-			<div class="col-sm-4"></div>
+			<div class="col-sm-4">{{ $city or "Cardiff"}}</div>
 			<div class="col-sm-4">
 
 				<div class="dropdown">
@@ -22,7 +22,7 @@
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						@foreach ($cities as $city)
-						    <a class="dropdown-item" href="{{ route('venues.city', $city->city) }}">{{ $city->city }}</a>
+						    <a class="dropdown-item" href="{{ route('events.view', $city->city) }}">{{ $city->city }}</a>
 						@endforeach
 					</div>
 				</div>
@@ -45,12 +45,11 @@
 						</div>
 						</p>
 					</div>
-					<div class='row'>
-						<h2> {{ $event->title }} </h2>
-					</div>
-					<div class='row'>
-						<a href="{{ route('events.show', $event->venue ) }}"><h5> {{ $event->venue->name }}</h5></a>
-					</div>
+					
+					<h2> {{ $event->title }} </h2>
+					
+					<a href="{{ route('events.show', $event->venue ) }}"><h5> {{ $event->venue->name }}</h5></a>
+					
 					<div class="row">
 						<p>
 							<div class="col-sm-10">
@@ -84,7 +83,9 @@
 			</div>
 			<hr>
 		@endforeach
+
 		{{ $events->links() }}
+		
 	</div>
 </div>
 @endsection

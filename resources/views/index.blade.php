@@ -42,45 +42,59 @@
     map.on('load', function () {
         // Add a layer showing the places.
 
-        $( "#map-date").change(function() {
+        var date = $( "#map-date ").val();
+        var url = "{{ url('venue-data') }}?date=" + date;
 
-        	var date = $(this).val();
-        	var url = "{{ url('venue-data') }}?date=" + date;
+        let venues = $.ajax({
+            url: url,
+            dataType: 'json',
+            complete: function () {
+                var venue_array = venues.responseJSON;
 
-	        let venues = $.ajax({
-	            url: url,
-	            dataType: 'json',
-	            complete: function () {
-	                var venue_array = venues.responseJSON;
+                var features = [];
+                for(var i=0; i<venue_array.length; i++) {
 
-	                var features = [];
-	                for(var i=0; i<venue_array.length; i++) {
+                    const venue = venue_array[i];
+                    feature.properties.description = "<strong><a href='venue/" + venue.id + "/events' class='popup'>" + venue.name + "</a></strong><br>" + venue.venue_type;
+                    feature.geometry.coordinates = [venue.longitude, venue.latitude];
+                    features[i] = jQuery.extend(true, {}, feature)
+                }
 
-	                    const venue = venue_array[i];
-	                    feature.properties.description = "<strong><a href='venue/" + venue.id + "/events' class='popup'>" + venue.name + "</a></strong><br>" + venue.venue_type;
-	                    feature.geometry.coordinates = [venue.longitude, venue.latitude];
-	                    features[i] = jQuery.extend(true, {}, feature)
-	                }
+                map.addLayer({
 
-	                map.addLayer({
+                    "id": "places",
+                    "type": "symbol",
+                    "source": {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": features,
+                        }
+                    },
+                    "layout": {
+                        "icon-image": "{icon}-15",
+                        "icon-allow-overlap": true
+                    }
+                });
+            }
+        });
 
-	                    "id": "places",
-	                    "type": "symbol",
-	                    "source": {
-	                        "type": "geojson",
-	                        "data": {
-	                            "type": "FeatureCollection",
-	                            "features": features,
-	                        }
-	                    },
-	                    "layout": {
-	                        "icon-image": "{icon}-15",
-	                        "icon-allow-overlap": true
-	                    }
-	                });
-	            }
-	        });
-	    });
+      //   $( "#map-date").change(function() {
+
+      //       if (map.hasLayer(layer)) {
+      //           map.removeLayer(layer);
+      //           this.className = '';
+      //       } else {
+      //           map.addLayer(layer);
+      //           this.className = 'active';
+      //       }
+
+      //       var date = $(this).val();
+      //       var url = "{{ url('venue-data') }}?date=" + date;
+
+
+	     // });
+
     });
 
 
