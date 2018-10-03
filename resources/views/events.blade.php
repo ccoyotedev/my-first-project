@@ -2,7 +2,7 @@
 
 @section('map')
 <div class = 'row'>
-    <div class = 'col-lg-12 map' id='map'></div>
+    <div class = 'col-lg-12 map' id='mapid'></div>
 </div>
 @endsection
 
@@ -77,15 +77,16 @@
 				</div>
 
 				<div class="col-sm-4">
-					<img src= "{{ $event->image }}" width="150" height="150">
+					<img src= "{{ $event->image }}" width="175" height="150">
 				</div>
 				<div class="col-sm-1"></div>
 			</div>
 			<hr>
 		@endforeach
-
-		{{ $events->links() }}
+		<div class="pagination-bar">{{ $events->links() }}</div>
+		
 		
 	</div>
+
 </div>
 @endsection

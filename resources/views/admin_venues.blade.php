@@ -2,7 +2,7 @@
 
 @section('map')
 <div class = 'row'>
-    <div class = 'col-lg-12 map' id='map'></div>
+    <div class = 'col-lg-12 map' id='mapid'></div>
 </div>
 @endsection
 
@@ -58,7 +58,7 @@
 											    <legend class="col-form-label col-sm-5 pt-0">Age Restriction</legend>
 											    <div class="col-sm-7">
 											        <div class="form-check">
-											            <input class="form-check-input" type="radio" name="age-restriction" id="age-restriction1" value="0" checked>
+											            <input class="form-check-input" type="radio" name="age-restriction" id="age-restriction1" value="None" checked>
 											            <label class="form-check-label" for="age-restriction1">
 											            	No age restriction
 											            </label>

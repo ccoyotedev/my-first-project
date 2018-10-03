@@ -12,13 +12,16 @@
 */
 
 Route::get('tinker', function () {
-	$today = date('Y-m-d');
-	$venue_ids = App\Event::where('date', $today)->select('venue_id')->get();
-	$venues = [];
-	foreach($venue_ids as $venue_id) {
-		$venues[] = App\Venue::where('id', $venue_id->venue_id)->first();
-	}
-	return App\Venue::all();
+
+	// $venues = App\Venue::join('events', 'venues.id', '=', 'events.venue_id')
+	// 	->get();
+
+	    $events = App\Event::join('venues', 'venues.id', '=', 'events.venue_id')
+            ->select('events.*')
+            ->orderBy('events.date', 'asc') // 'desc'
+            ->where('venues.city', 'Cardiff')
+            ->where('events.date', '>=', 'Cardiff')
+            ->get();
 
 
 	

@@ -3,15 +3,16 @@
     src: url('fonts/coolfont.ttf');
 }
 
-
-#map {
-	z-index: 0;
-	padding-left: 0px;
+#mapid {
+    height: 100vh;
+    z-index: 0;
+    padding-left: 0px;
     position:fixed;
     top:0;
     bottom:0;
     width:100%;
-}
+    }
+
 
 .popup {
     color:black;

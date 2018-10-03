@@ -11,9 +11,14 @@
 
     <title>Chord</title>
 
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet'/>
+    <!-- leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+   integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+   crossorigin=""></script>
 
 
     <!-- fun icons -->
@@ -64,17 +69,17 @@
                         
                         <?php
                         function adminView() {
-                        $user_id = Auth::id();
-                        $admins = Admin::all();
-                        foreach ($admins as $admin) {
-                        if ($admin->user_id == $user_id) {
-                        ?>
-                        <li>
-                            <a href="{{ route('admin-venues.view') }}">Add Events</a>
-                        </li>
-                        <?php
-                        }
-                        }
+                            $user_id = Auth::id();
+                            $admins = Admin::all();
+                            foreach ($admins as $admin) {
+                                if ($admin->user_id == $user_id) {
+                                    ?>
+                                    <li>
+                                        <a href="{{ route('admin-venues.view') }}">Add Events</a>
+                                    </li>
+                                    <?php
+                                }
+                            }
                         }
 
                         AdminView();
@@ -95,6 +100,7 @@
     </div>
 </div>
 <!-- map -->
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -105,13 +111,14 @@
 
 <script>
 
-    mapboxgl.accessToken = 'pk.eyJ1IjoiY2djYnJvd24iLCJhIjoiY2ptOHZieHduMHNoeTNwbnR0d2NudGQ5biJ9.Q4Sn0qdYeMUt4BhYUf9X6A';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/cgcbrown/cjm91831xez7d2rnic3loq6sh',
-        center: [-3.178, 51.48],
-        zoom: 13
-    });
+    var mymap = L.map('mapid').setView([51.48, -3.178], 13);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.dark',
+        accessToken: 'pk.eyJ1IjoiY2djYnJvd24iLCJhIjoiY2ptOHZieHduMHNoeTNwbnR0d2NudGQ5biJ9.Q4Sn0qdYeMUt4BhYUf9X6A'
+    }).addTo(mymap);
+
 
 </script>
 

@@ -2,7 +2,7 @@
 
 @section('map')
 <div class = 'row'>
-    <div class = 'col-lg-12 map' id='map'></div>
+    <div class = 'col-lg-12 map' id='mapid'></div>
 </div>
 @endsection
 
