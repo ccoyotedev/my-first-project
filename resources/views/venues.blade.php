@@ -7,18 +7,18 @@
 @endsection
 
 @section('content')
-<div class='col-lg-11 venue-list' id='venue-list'>
+<div class='col-lg-11 venue-list'>
 	<div class='row header'>
 		<div class="col-sm-7">
-			<h1>Venues</h1>
+			<h1 id='venues-title'>Venues</h1>
 		</div>
-		<div class="col-sm-2">
-			<h3> {{ $city or "Cardiff" }}</h3>
+		<div class="col-sm-2 city-selector">
+			<h4> {{ $city or "Cardiff" }}</h4>
 		</div>
-		<div class="col-sm-3"> 
+		<div class="col-sm-3 city-selector">
 			<div class="dropdown">
-				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='float:left'>
-				    City
+				<button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='float:left'>
+				    Change City
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 					@foreach ($cities as $city)
@@ -27,6 +27,7 @@
 				</div>
 			</div>
 		</div>
+		<hr>
 	</div>
 	<div class = 'row'>
 	@foreach ($venues as $venue)
@@ -38,7 +39,7 @@
 				    		<h5 class="card-title">{{ $venue->name }}</h5>
 				    	</div>
 				    	<div class='col-sm-2'>
-				    		<a href="#" class="favourite-button" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
+				    		<a href="#" class="favourite-button favourite{{ $venue->id }}" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
 				    			<i class="far fa-heart favourite-icon @if($venue->userFavourited) fa favourite-glow @endif"></i>
 				    		</a>
 				    	</div>
@@ -59,16 +60,15 @@
 				    	      	<div class="row">
 									<div class="col-sm-1"></div>
 									<div class="col-sm-10">
-										<div class='row'>
-											<div class="col-sm-1"></div>
-											<div class='col-sm-6'>
+										<div class='row venue-modal-header'>
+											<div class='col-sm-7'>
 												<h1 style='text-align: center; padding-bottom:2vh;'> {{$venue->name}}</h1>
 											</div>
 											<div class='col-sm-4'>
 												<h5> {{$venue->venue_type}} </h5>
 											</div>
 											<div class='col-sm-1'>
-									    		<a href="#" class="favourite-button" id="favourite-anchor" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
+									    		<a href="#" class="favourite-button favourite{{ $venue->id }}"  data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
 									    			<i class="far fa-heart favourite-icon @if($venue->userFavourited) fa favourite-glow @endif"></i>
 									    		</a>
 									    	</div>
@@ -80,6 +80,7 @@
 												<hr>		
 											</div>
 										</div>
+
 									<!-- Modal events --->
 						    		<?php
 						    			$today = date('Y-m-d');
@@ -133,7 +134,7 @@
 												</div>
 
 												<div class="col-sm-4">
-													<img src= "{{ $event->image }}" width="130" height="130">
+													<img src= "{{ $event->image }}" width="150" height="130">
 												</div>
 												<div class="col-sm-1"></div>
 											</div>
@@ -167,6 +168,9 @@
 
 			$('.favourite-button').on('click', function(){
 				var thisButton = $(this);
+
+				console.log(thisButton);
+				
 				var url = thisButton.data('url');
 
 				$.ajax({
@@ -187,6 +191,9 @@
 
 				return false;
 			});
+
+			//TO DO - When clicked on modal favourite icon toggle other favourite icon and likewise.
+
 
 			$('.interested-button').on('click', function(){
 				var thisButton = $(this);

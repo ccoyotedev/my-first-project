@@ -21,6 +21,9 @@ class DeedsSeeder extends Seeder
     	foreach(Venue::all() as $venue) {
             $firstAdmin->venues()->attach($venue->id);
 		}
+
+        $secondAdmin = Admin::where('user_id', 2)->first()->venues()->attach(4);
+        
     
     }
 }

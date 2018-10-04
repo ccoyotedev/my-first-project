@@ -18,6 +18,10 @@ class AdminsSeeder extends Seeder
 		$admin1 = Admin::create([
             'user_id' => 1,
         ]);
+
+        $admin2 = Admin::create([
+            'user_id' => 2,
+        ]);
 		
     }
 }

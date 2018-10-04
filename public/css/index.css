@@ -18,6 +18,10 @@
     color:black;
 }
 
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 /*sidebar*/
 
 #sidebar {
@@ -50,8 +54,11 @@
     color: #FB9902;
  }
 #sidebar a {
-	font-family: arial;
+    text-align: center;
+	font-family: 'Montserrat', sans-serif;
+    font-size:15px;
     color: #F5F5F5;
+    margin-left:3px;
 }
 
 #sidebar.active {
@@ -90,8 +97,40 @@ a[data-toggle="collapse"] {
 }
 
 /*Venues*/
+.venue-modal-header {
+    margin-top: 20px;
 
+}
 
+.venue-modal-header h1 {
+    /*text-shadow: 1px 1px orange,
+        -1px 1px orange,
+        -1px -1px orange,
+        1px -1px orange*/
+    float:right;
+}
+
+.venue-modal-header h5 {
+    margin-top:4px;
+    text-shadow: 1px 1px orange,
+        -1px 1px orange,
+        -1px -1px orange,
+        1px -1px orange;
+    text-align:center;
+
+    
+}
+
+.venue-event-favourite .favourite-icon {
+    margin-left: 10px;
+}
+
+.venue-modal-header .favourite-icon {
+    color: black;
+    margin-left: 14px;
+    margin-top: 10px;
+    font-size: 35px;
+}
 
 .venue-info.card {
     margin-bottom: 4vh;
@@ -108,7 +147,21 @@ a[data-toggle="collapse"] {
 .header {
     text-align: right;
     color: #FB9902;
+    margin-bottom: 10px;
 }
+
+.city-selector {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.city-selector h4 {
+    text-shadow: 1px 1px #00003B,
+        -1px 1px #00003B,
+        -1px -1px #00003B,
+        1px -1px #00003B;
+}
+
 
 .card-title {
     text-shadow: 1px 1px #00003B,
@@ -117,16 +170,32 @@ a[data-toggle="collapse"] {
         1px -1px #00003B;
 }
 
-#venue-list .card-body {
+.venue-list .card-body {
     padding-bottom: 30px;
     max-height: 220px;
     height: 220px;
+}
 
+.card-body button {
+    text-align:center;
+}
+
+.collapse .card-body {
+    margin-top: 18px;
+    margin-left: -24px
 }
 
 .venue-list {
-    background-color: rgba(0, 0, 0, 0.5);
+    /*background-color: rgba(0, 0, 0, 0.5);*/
     padding-left: 35px;
+}
+
+.venue-list #venues-title {
+    margin-top: 3px;
+    text-shadow: 1px 1px #00003B,
+        -1px 1px #00003B,
+        -1px -1px #00003B,
+        1px -1px #00003B
 }
 
 
@@ -143,7 +212,23 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
+#favourite-cards .card-body {
+    padding-bottom: 30px;
+    max-height: 240px;
+    height: 240px;
+}
+
+#admin-cards .card-body {
+    padding-bottom: 30px;
+    max-height: 250px;
+    height: 250px;
+}
+
 /*add event form*/
+#admin-cards .modal-content {
+    width: 113%;
+}
+
 
 .modal-content {
     border: 3px solid #FB9902;
@@ -196,6 +281,10 @@ a[data-toggle="collapse"] {
 
 
 /*icons*/
+
+.card-body .favourite-icon {
+    margin-left: -15px;
+}
 
 .favourite-icon {
     font-size:25px;

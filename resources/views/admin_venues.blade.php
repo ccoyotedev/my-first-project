@@ -16,9 +16,9 @@
 	<div class = 'row'>
 	@foreach ($venues as $venue)
 		<div class="col-md-4">
-		    <div class="card venue-info">
+		    <div class="card venue-info" id='admin-cards'>
 				<div class="card-body">
-				    <h5 class="card-title">{{ $venue->name }}</h5>
+				    <h4 class="card-title">{{ $venue->name }}</h4>
 				    <h6> {{$venue->venue_type}} </h6>
 				    <p class="card-text">
 				    	{{ $venue->city }} <br>

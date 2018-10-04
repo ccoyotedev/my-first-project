@@ -20,6 +20,9 @@
    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
    crossorigin=""></script>
 
+   <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Shadows+Into+Light" rel="stylesheet">
+
 
     <!-- fun icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
@@ -74,6 +77,7 @@
                             foreach ($admins as $admin) {
                                 if ($admin->user_id == $user_id) {
                                     ?>
+                                    <br>
                                     <li>
                                         <a href="{{ route('admin-venues.view') }}">Add Events</a>
                                     </li>
@@ -85,8 +89,8 @@
                         AdminView();
                         ?>
                         <li>
-                            <br><br><br><br>
-                            <a href="{{ url('/logout') }}">LOGOUT</a>
+                            <br><br><br><br><br><br><br>
+                            <a href="{{ url('/logout') }}">Logout</a>
                         </li>
                     </ul>
                 </nav>

@@ -16,7 +16,7 @@
 	<div class = 'row'>
 	@foreach ($venues as $venue)
 		<div class="col-sm-4 {{$venue->id}}">
-		    <div class="card venue-info">
+		    <div class="card venue-info" id="favourite-cards">
 				<div class="card-body">
 					<div class="row">
 						<div class="col-sm-10">

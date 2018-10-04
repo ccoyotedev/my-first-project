@@ -23,6 +23,13 @@ class UsersSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
+        $user2 = User::create([
+            'email' => 'plandrews@gmail.com',
+            'name' => 'Plandrover',
+            'password' => Hash::make('password')
+
+        ]);
+
 		for($i=0; $i<10; $i++) {
 			User::create([
 				'email' => "users$i@hotmail.com",

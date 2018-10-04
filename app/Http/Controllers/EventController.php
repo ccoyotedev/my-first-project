@@ -18,19 +18,6 @@ class EventController extends Controller
 
         $admin = Auth::user()->admin;
 
-        $originalImage = $request->file('image')->getRealPath();
-        $uploadedImage = Image::make($originalImage);
-        $uploadedPath = public_path().'/uploaded/';
-        $originalPath = public_path().'/css/img/';
-        $uploadedImage->save($originalPath.time().$originalImage->getClientOriginalName());
-        $uploadedImage->resize(150,150);
-        $uploadedImage->save($uploadedPath.time().$originalImage->getClientOriginalName());
-
-        $imagemodel= new ImageModel();
-        $imagemodel->filename=time().$originalImage->getClientOriginalName();
-        $imagemodel->save();
-
-
         $venue->events()->create([
             'title' => request('title'),
             'date' => request('date'),
@@ -38,9 +25,7 @@ class EventController extends Controller
             'end_time' => request('end-time'),
             'age_restriction' => request('age-restriction'),
             'genre' => request('genre'),
-            'description' => request('description'),
-
-            
+            'description' => request('description'),            
 
             'ticket_price' => request('ticket-price'),
             'ticket_link' => request('ticket-link'),
