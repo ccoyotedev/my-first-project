@@ -7,15 +7,17 @@
 @endsection
 
 @section('content')
-<div class='col-sm-8'>
-	
-</div>
+
+<div class='col-sm-8'></div>
 
 <div class='col-sm-3'>
- 	<form name="myform">
-	    <input type="date" class="form-control" name="date" id="map-date" value= <?= date('Y-m-d') ?>>
-	</form>
+    <form name="myform">
+        <input type="date" class="form-control" name="date" id="map-date" value= <?= date('Y-m-d') ?>>
+    </form>
 </div>
+
+
+
 @endsection
 
 @section('script')
@@ -51,7 +53,7 @@ function addVenueMarkerLayer() {
                         color: '#FB9902',
                         fillColor: '#FB9902',
                         fillOpacity: 0.5,
-                        radius: 20}).bindPopup("<strong><a href='venue/" + venue.id + "/events' class='popup'>" + venue.name + "</a></strong><br>" + venue.venue_type + "<br><br>" + venue.title)
+                        radius: 20}).bindPopup("<strong><a href='venue/" + venue.venue_id + "/events' class='popup'>" + venue.name + "</a></strong><br>" + venue.venue_type + "<br><br><a href='/event/" + venue.id + "' class='popup'>"+ venue.title +"</a>")
                 );
             }
 

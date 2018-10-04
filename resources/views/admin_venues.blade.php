@@ -35,7 +35,7 @@
 					    	<div class="col-sm-1"></div>
 								<div class='col-lg-9 add-event-form' style='color:black; max-width: 100%; padding:30px'>
 									<h1>{{$venue->name}}</h1>
-									<form method="POST" id='add-event' action= "{{ route('event.store', $venue) }}">
+									<form method="POST" id='add-event' action= "{{ route('event.store', $venue) }}" enctype="multipart/form-data">
 										{{ csrf_field() }}
 										<div class="form-group">
 										    <label for="title">Event Title</label>
@@ -86,12 +86,14 @@
 										    <label for="description">Description</label>
 										    <input type="text" class="form-control" name="description" id="description" maxlength="500">
 										</div>
+
 										<div class="form-group">
 									        <label for="image">Event Image:</label>
 									        <input type="file"
 									               id="image" name="image"
 									               accept="image/png, image/jpeg" />
 									    </div>
+
 										<div class="form-group">
 										    <label for="ticket-price">Ticket Price</label>
 										    <input type="number" class="form-control" name="ticket-price" id="ticket-price">

@@ -7,14 +7,29 @@ use App\Event;
 use App\Admin;
 use App\Interest;
 use App\User;
+use Image;
 use Auth;
 
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    protected function store(Venue $venue) {
+    protected function store(Venue $venue, Request $request) {
+
         $admin = Auth::user()->admin;
+
+        $originalImage = $request->file('image')->getRealPath();
+        $uploadedImage = Image::make($originalImage);
+        $uploadedPath = public_path().'/uploaded/';
+        $originalPath = public_path().'/css/img/';
+        $uploadedImage->save($originalPath.time().$originalImage->getClientOriginalName());
+        $uploadedImage->resize(150,150);
+        $uploadedImage->save($uploadedPath.time().$originalImage->getClientOriginalName());
+
+        $imagemodel= new ImageModel();
+        $imagemodel->filename=time().$originalImage->getClientOriginalName();
+        $imagemodel->save();
+
 
         $venue->events()->create([
             'title' => request('title'),
@@ -24,6 +39,9 @@ class EventController extends Controller
             'age_restriction' => request('age-restriction'),
             'genre' => request('genre'),
             'description' => request('description'),
+
+            
+
             'ticket_price' => request('ticket-price'),
             'ticket_link' => request('ticket-link'),
             'created_by' => $admin->id,
@@ -53,6 +71,18 @@ class EventController extends Controller
         return view('events', compact('events','cities', 'city'));
     }
 
+    public function singleEventView($event) {
+        // $event_id = $event;
+        $events = Event::where('id', $event)->get();
+
+        foreach ($events as $event) {
+            $venue = $event->venue;
+        }
+
+        return view('venue_events', compact('venue', 'events'));
+
+    }
+
 
 
     public function venueView(Venue $venue) {
@@ -78,7 +108,7 @@ class EventController extends Controller
         return view('interests', compact('events'));
     }
 
-    public static function registerInterest(Venue $venue, Event $event) {
+    public static function registerInterest(Event $event) {
         $user_id = Auth::user()->id;
         $event_id = $event->id;
 

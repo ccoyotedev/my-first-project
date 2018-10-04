@@ -48,6 +48,7 @@
 					
 					<h2> {{ $event->title }} </h2>
 					
+					
 					<a href="{{ route('events.show', $event->venue ) }}"><h5> {{ $event->venue->name }}</h5></a>
 					
 					<div class="row">
@@ -61,10 +62,13 @@
 						</p>
 					</div>
 					<div class='row event-buttons'>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
 							<button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample{{$event->id}}" aria-expanded="false" aria-controls="collapseExample">More info</button>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-4">
+							<a href="#" class="btn btn-outline-warning interested-button @if($event->userInterested) glow @endif" data-url="{{ route('event.interest', ['event' => $event])}}">Interested</a>
+						</div>
+						<div class="col-sm-4">
 							<a href="{{ $event->ticket_link }}" target="_blank" class="purchase btn btn-outline-warning">Buy Tickets</a>
 						</div>
 						
@@ -89,4 +93,32 @@
 	</div>
 
 </div>
+@endsection
+
+@section('script')
+
+	<script type="text/javascript">
+
+		$(function(){
+
+			$('.interested-button').on('click', function(){
+				var thisButton = $(this);
+				var url = thisButton.data('url');
+
+				$.ajax({
+					url: url,
+					complete: function(jqXHR, textStatus) {
+						if (thisButton.hasClass('glow')) {
+							thisButton.removeClass('glow');
+						} else {
+							thisButton.addClass('glow');
+						}
+					}
+				})
+
+				return false;
+			});
+		});
+	</script>
+
 @endsection

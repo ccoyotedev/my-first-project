@@ -16,13 +16,6 @@ Route::get('tinker', function () {
 	// $venues = App\Venue::join('events', 'venues.id', '=', 'events.venue_id')
 	// 	->get();
 
-	    $events = App\Event::join('venues', 'venues.id', '=', 'events.venue_id')
-            ->select('events.*')
-            ->orderBy('events.date', 'asc') // 'desc'
-            ->where('venues.city', 'Cardiff')
-            ->where('events.date', '>=', 'Cardiff')
-            ->get();
-
 
 	
 });
@@ -41,6 +34,8 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('events/{city}', 'EventController@view')->name("events.view");
 
+Route::get('event/{event_id}', 'EventController@singleEventView');
+
 Route::get('venues/{city}', 'VenueController@view')->name("venues.view");
 
 Route::get('venue/{venue}', 'FavouriteController@register')->name("venue.favourite");
@@ -57,7 +52,7 @@ Route::get('interests', 'EventController@viewInterested')->name('user.interests'
 
 Route::get('favourites', 'FavouriteController@viewFavourites')->name('user.favourites');
 
-Route::get('venue/{venue}/events/{event}/register-interest', 'EventController@registerInterest')->name('event.interest');
+Route::get('events/{event}/register-interest', 'EventController@registerInterest')->name('event.interest');
 
 Route::get('interests/{event}', 'InterestController@delete')->name("event.uninterest");
 

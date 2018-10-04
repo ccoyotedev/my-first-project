@@ -86,9 +86,6 @@
                         ?>
                         <li>
                             <br><br><br><br>
-                            <a href="#">Contact Us</a>
-                        </li>
-                        <li>
                             <a href="{{ url('/logout') }}">LOGOUT</a>
                         </li>
                     </ul>
@@ -111,7 +108,7 @@
 
 <script>
 
-    var mymap = L.map('mapid').setView([51.48, -3.178], 13);
+    var mymap = L.map('mapid').setView([51.48, -3.178], 14);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
