@@ -9,7 +9,7 @@
 @section('content')
 <div class="col-sm-1"></div>
 <div class="col-sm-9" id='interests'>
-	<h1 style='text-align: center; padding-bottom:2vh;'> Interests </h1>
+	<h1 id="interests-title"> Interested </h1>
 	<hr>
 	@foreach ($events as $event)
 		<div class="row">

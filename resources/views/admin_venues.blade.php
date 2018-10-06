@@ -10,7 +10,7 @@
 <div class='col-lg-11 venue-list' id='admin_venue_list'>
 	<div class='row header'>
 		<div class="col-sm-12">
-			<h1> Your Venues </h1>
+			<h1 style='text-align:center'> Your Venues </h1>
 		</div>
 	</div>
 	<div class = 'row'>

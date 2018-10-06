@@ -21,7 +21,8 @@
    crossorigin=""></script>
 
    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Shadows+Into+Light" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Shadows+Into+Light|Yellowtail" rel="stylesheet">
+    
 
 
     <!-- fun icons -->
@@ -53,17 +54,19 @@
                 <!-- Sidebar -->
                 <nav id="sidebar">
                     <div class="sidebar-header">
-                        <a href=" {{ route('index') }}"><h3>Chord</h3><br><br></a>
+                        <a href=" {{ route('index') }}"><h3>Chord</h3><br></a>
                     </div>
 
                     <ul class="list-unstyled components">
                         <li>
+                            <br><br>
                             <a href="{{ route('events.view', ['city' => 'Cardiff']) }}">Events</a>
                         </li>
                         <li>
                             <a href="{{ route('venues.view', ['city' => 'Cardiff']) }}">Venues</a>
                         </li>
                         <li>
+                            <br>
                             <a href="{{ route('user.interests') }}">Interested</a>
                         </li>
                         <li>
@@ -89,7 +92,7 @@
                         AdminView();
                         ?>
                         <li>
-                            <br><br><br><br><br><br><br>
+                            <br><br><br><br><br><br>
                             <a href="{{ url('/logout') }}">Logout</a>
                         </li>
                     </ul>

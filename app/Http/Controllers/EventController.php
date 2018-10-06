@@ -51,7 +51,7 @@ class EventController extends Controller
             ->orderBy('events.date', 'asc') // 'desc'
             ->where('venues.city', $city)
             ->where('events.date', '>=', $today)
-            ->paginate(4);
+            ->paginate(5);
 
         return view('events', compact('events','cities', 'city'));
     }

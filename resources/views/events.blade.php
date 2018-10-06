@@ -10,15 +10,16 @@
 <div class="col-sm-1"></div>
 	<div class="col-sm-9" id='events'>
 		<div class="row" id='events-header'>
-			<div class="col-sm-4">
-				<h1 style='text-align: center; padding-bottom:2vh;'> Events </h1>
+			<div class="col-sm-7">
+				<h1 id="events-title"> Events </h1>
 			</div>
-			<div class="col-sm-4">{{ $city or "Cardiff"}}</div>
-			<div class="col-sm-4">
-
+			<div class="col-sm-2 city-selector">
+				<h4  id='city'> {{ $city or "Cardiff" }}</h4>
+			</div>
+			<div class="col-sm-3 city-selector">
 				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    City
+					<button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='float:left'>
+					    Change City
 					</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						@foreach ($cities as $city)
@@ -26,9 +27,9 @@
 						@endforeach
 					</div>
 				</div>
-		
 			</div>
 		</div>
+		
 		@foreach ($events as $event)
 			<div class="row">
 				<div class="col-sm-1"></div>
@@ -48,7 +49,7 @@
 					
 					<h2> {{ $event->title }} </h2>
 
-					<a type="button" data-toggle="modal" data-target=".form-modal-lg{{$event->id}}" href=".form-modal-lg{{ $event->id }}">{{ $event->venue->name }}</a>
+					<a data-toggle="modal" data-target=".form-modal-lg{{$event->id}}" href=".form-modal-lg{{ $event->id }}">{{ $event->venue->name }}</a>
 					<div class="modal fade form-modal-lg{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				  		<div class="modal-dialog modal-lg">
 				    		<div class="modal-content event-modal" style='color:black'>
@@ -57,16 +58,15 @@
 				    	      	<div class="row">
 									<div class="col-sm-1"></div>
 									<div class="col-sm-10">
-										<div class='row'>
-											<div class="col-sm-1"></div>
-											<div class='col-sm-6'>
+										<div class='row venue-modal-header'>
+											<div class='col-sm-7'>
 												<h1 style='text-align: center; padding-bottom:2vh;'> {{$event->venue->name}}</h1>
 											</div>
 											<div class='col-sm-4'>
 												<h5> {{$event->venue->venue_type}} </h5>
 											</div>
 											<div class='col-sm-1'>
-									    		<a href="#" class="favourite-button" id="favourite-anchor" data-url="{{ route('venue.favourite', ['venue' => $event->venue])}}">
+									    		<a href="#" class="favourite-button favourite{{ $event->venue->id }}"  data-url="{{ route('venue.favourite', ['venue' => $event->venue])}}">
 									    			<i class="far fa-heart favourite-icon @if($event->venue->userFavourited) fa favourite-glow @endif"></i>
 									    		</a>
 									    	</div>
@@ -122,9 +122,9 @@
 														<div class="col-sm-4">
 															<a href="#" class="btn btn-outline-warning interested-button @if($venueEvent->userInterested) glow @endif" data-url="{{ route('event.interest', ['venue' => $venueEvent->venue, 'event' => $event])}}">Interested</a>
 														</div>
-														<div class="collapse" id="collapseExample{{ $event->id }}">
+														<div class="collapse" id="collapseExample{{ $venueEvent->id }}">
 									  						<div class="card card-body">
-																{{ $event->description }}
+																{{ $venueEvent->description }}
 															</div>
 														</div>					 
 													</div>
