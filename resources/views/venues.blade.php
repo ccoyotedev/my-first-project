@@ -39,7 +39,7 @@
 				    		<h5 class="card-title">{{ $venue->name }}</h5>
 				    	</div>
 				    	<div class='col-sm-2'>
-				    		<a href="#" class="favourite-button favourite{{ $venue->id }}" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
+				    		<a href="#" class="favourite-button" id="favourite{{ $venue->id }}" data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
 				    			<i class="far fa-heart favourite-icon @if($venue->userFavourited) fa favourite-glow @endif"></i>
 				    		</a>
 				    	</div>
@@ -68,7 +68,7 @@
 												<h5> {{$venue->venue_type}} </h5>
 											</div>
 											<div class='col-sm-1'>
-									    		<a href="#" class="favourite-button favourite{{ $venue->id }}"  data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
+									    		<a href="#" class="favourite-button" id="favourite{{ $venue->id }}"  data-url="{{ route('venue.favourite', ['venue' => $venue])}}">
 									    			<i class="far fa-heart favourite-icon @if($venue->userFavourited) fa favourite-glow @endif"></i>
 									    		</a>
 									    	</div>
@@ -169,30 +169,36 @@
 			$('.favourite-button').on('click', function(){
 				var thisButton = $(this);
 
-				console.log(thisButton);
+
+				var thisButtonID = '#' + thisButton.attr('id');
+				var favouriteIcon = $(thisButtonID + " :nth-child(1)");
+
 				
 				var url = thisButton.data('url');
 
 				$.ajax({
 					url: url,
 					complete: function(jqXHR, textStatus) {
-						if (thisButton.children().hasClass('fa')) {
-							thisButton.children().removeClass('fa');
-							thisButton.children().removeClass('favourite-glow');
-							thisButton.children().addClass('far');
+						
+						if (favouriteIcon.hasClass('fa')) {
+							favouriteIcon.removeClass('fa');
+							favouriteIcon.removeClass('favourite-glow');
+							favouriteIcon.addClass('far');
 
 						} else {
-							thisButton.children().removeClass('far');
-							thisButton.children().addClass('fa');
-							thisButton.children().addClass('favourite-glow');
+							favouriteIcon.removeClass('far');
+							favouriteIcon.addClass('fa');
+							favouriteIcon.addClass('favourite-glow');
 						}
+					
+						
 					}
 				})
 
 				return false;
 			});
 
-			//TO DO - When clicked on modal favourite icon toggle other favourite icon and likewise.
+			
 
 
 			$('.interested-button').on('click', function(){
