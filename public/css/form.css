@@ -40,9 +40,11 @@ body {
 	text-align: center;
 	color:orange;
 	background-color: rgba(0, 0, 0, 0.45);
+	border-radius: 5%;
 	width:40vw;
 	margin-left:30vw;
 	margin-top:-5vh;
+	padding-top:3vh;
 	position:absolute;
 }
 

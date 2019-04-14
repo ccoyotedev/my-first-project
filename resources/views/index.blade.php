@@ -57,8 +57,7 @@ function addVenueMarkerLayer() {
                 );
             }
 
-            venueMarkerLayer = L.layerGroup(venueMarkers).addTo(mymap);
-            console.log('Done');       
+            venueMarkerLayer = L.layerGroup(venueMarkers).addTo(mymap);      
                                   
         }
 

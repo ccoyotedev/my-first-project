@@ -45,24 +45,24 @@
 
 @section('script')
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
-		$(function(){
+	$(function(){
 
-			$('.remove-button').on('click', function(){
-				var thisButton = $(this);
-				var url = thisButton.data('url');
+		$('.remove-button').on('click', function(){
+			var thisButton = $(this);
+			var url = thisButton.data('url');
 
-				$.ajax({
-					url: url,
-					complete: function(jqXHR, textStatus) {
-						thisButton.parent().parent().parent().parent().parent().remove();
-					}
-				})
+			$.ajax({
+				url: url,
+				complete: function(jqXHR, textStatus) {
+					thisButton.parent().parent().parent().parent().parent().remove();
+				}
+			})
 
-				return false;
-			});
+			return false;
 		});
+	});
 
-	</script>
+</script>
 @endsection

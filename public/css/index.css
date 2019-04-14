@@ -45,8 +45,9 @@ body {
 #sidebar h3 {
 	font-family: 'Yellowtail', cursive;
 	color:#FB9902;
-	font-size: 40px;
+	font-size: 45px;
 	margin-bottom: -15px;
+    margin-left: -12px;
 }
 #sidebar p {
 	font-family: RolletteQaku;
@@ -381,4 +382,15 @@ a.purchase {
 
 #events-header {
     
+}
+
+.event-header {
+    color: white;
+    background-color: black;
+    font-size: 10px;
+    text-align: right;
+}
+
+.event-header .col-sm-4 {
+    text-align:left;
 }

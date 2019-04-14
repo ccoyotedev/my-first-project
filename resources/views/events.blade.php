@@ -34,17 +34,15 @@
 			<div class="row">
 				<div class="col-sm-1"></div>
 				<div class="col-sm-7">
-					<div class="row">
+					<div class="row event-header">
 						<div class="col-sm-4">
-							{{ date('d F Y', strtotime($event->date)) }}
+							{{ date('D', strtotime($event->date))}} {{ date('d F y', strtotime($event->date)) }}
 						</div>
-						<div class="col-sm-6">
-							{{date('H:i', strtotime($event->start_time)) }}-{{date('H:i', strtotime($event->end_time))}}
+						<div class="col-sm-8">
+							{{date('H:i', strtotime($event->start_time)) }}-{{date('H:i', strtotime($event->end_time))}} |
+							£{{$event->ticket_price }} |
+							{{$event->age_restriction}}			
 						</div>
-						<div class="col-sm-2">
-							{{$event->age_restriction}}
-						</div>
-						</p>
 					</div>
 					
 					<h2> {{ $event->title }} </h2>
@@ -87,17 +85,15 @@
 	 										<div class="row">
 												<div class="col-sm-1"></div>
 												<div class="col-sm-7">
-													<div class="row">
-														<div class="col-sm-5">
-															{{ date('d F Y', strtotime($venueEvent->date)) }}
+													<div class="row event-header">
+														<div class="col-sm-4">
+															{{ date('D', strtotime($venueEvent->date))}} {{ date('d F y', strtotime($venueEvent->date)) }}
 														</div>
-														<div class="col-sm-5">
-															{{date('H:i', strtotime($venueEvent->start_time)) }}-{{date('H:i', strtotime($venueEvent->end_time))}}
+														<div class="col-sm-8">
+															{{date('H:i', strtotime($venueEvent->start_time)) }}-{{date('H:i', strtotime($venueEvent->end_time))}} |
+															£{{$venueEvent->ticket_price }} |
+															{{$venueEvent->age_restriction}}			
 														</div>
-														<div class="col-sm-2">
-															{{$venueEvent->age_restriction}}
-														</div>
-														</p>
 													</div>
 													<div class='row'>
 														<h3> {{ $venueEvent->title }} </h3>
@@ -120,7 +116,7 @@
 															<a href="{{ $venueEvent->ticket_link }}" target="_blank" class="btn btn-outline-warning">Buy Tickets</a>
 														</div>
 														<div class="col-sm-4">
-															<a href="#" class="btn btn-outline-warning interested-button @if($venueEvent->userInterested) glow @endif" data-url="{{ route('event.interest', ['venue' => $venueEvent->venue, 'event' => $event])}}">Interested</a>
+															<a href="#" id="interest{{ $event->id }}" class="btn btn-outline-warning interested-button @if($venueEvent->userInterested) glow @endif" data-url="{{ route('event.interest', ['venue' => $venueEvent->venue, 'event' => $event])}}">Interested</a>
 														</div>
 														<div class="collapse" id="collapseExample{{ $venueEvent->id }}">
 									  						<div class="card card-body">
@@ -151,11 +147,8 @@
 					
 					<div class="row">
 						<p>
-							<div class="col-sm-10">
+							<div class="col-sm-12">
 								{{ $event->genre }}
-							</div>
-							<div class="col-sm-2">
-								£{{$event->ticket_price }}
 							</div>
 						</p>
 					</div>
@@ -164,7 +157,7 @@
 							<button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample{{$event->id}}" aria-expanded="false" aria-controls="collapseExample">More info</button>
 						</div>
 						<div class="col-sm-4">
-							<a href="#" class="btn btn-outline-warning interested-button @if($event->userInterested) glow @endif" data-url="{{ route('event.interest', ['event' => $event])}}">Interested</a>
+							<a href="#" id="interest{{ $event->id }}" class="btn btn-outline-warning interested-button @if($event->userInterested) glow @endif" data-url="{{ route('event.interest', ['event' => $event])}}">Interested</a>
 						</div>
 						<div class="col-sm-4">
 							<a href="{{ $event->ticket_link }}" target="_blank" class="purchase btn btn-outline-warning">Buy Tickets</a>
@@ -224,15 +217,22 @@
 
 			$('.interested-button').on('click', function(){
 				var thisButton = $(this);
+
+				var thisButtonID = '#' + thisButton.attr('id');
+				var interestIcon = $(thisButtonID);
+				
+				console.log(thisButton);
+				console.log(interestIcon);
+
 				var url = thisButton.data('url');
 
 				$.ajax({
 					url: url,
 					complete: function(jqXHR, textStatus) {
-						if (thisButton.hasClass('glow')) {
-							thisButton.removeClass('glow');
+						if (interestIcon.hasClass('glow')) {
+							interestIcon.removeClass('glow');
 						} else {
-							thisButton.addClass('glow');
+							interestIcon.addClass('glow');
 						}
 					}
 				})

@@ -26,15 +26,10 @@
 		</div>
 		<div class='row'>
 			<div class = 'col-lg-12 form'>
-				<h2>
-					@section('instruction')
-                    	THIS IS WHERE THE INSTRUCTION GOES
-                    @show
-				</h2>
 
-				    @section('form')
-                   		THIS IS WHERE THE FORM GOES
-                    @show
+				@section('form')
+					THIS IS WHERE THE FORM GOES
+				@show
 			</div>
 		</div>	
 	</div>

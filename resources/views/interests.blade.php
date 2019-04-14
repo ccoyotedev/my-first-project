@@ -15,17 +15,15 @@
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-7">
-				<div class="row">
+				<div class="row event-header">
 					<div class="col-sm-4">
-						{{ date('d F Y', strtotime($event->date)) }}
+						{{ date('D', strtotime($event->date))}} {{ date('d F y', strtotime($event->date)) }}
 					</div>
-					<div class="col-sm-6">
-						{{date('H:i', strtotime($event->start_time)) }}-{{date('H:i', strtotime($event->end_time))}}
+					<div class="col-sm-8">
+						{{date('H:i', strtotime($event->start_time)) }}-{{date('H:i', strtotime($event->end_time))}} |
+						£{{$event->ticket_price }} |
+						{{$event->age_restriction}}			
 					</div>
-					<div class="col-sm-2">
-						{{$event->age_restriction}}
-					</div>
-					</p>
 				</div>
 				<div class='row'>
 					<h2> {{ $event->title }} </h2>

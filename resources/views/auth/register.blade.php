@@ -1,8 +1,5 @@
 @extends('layouts/form')
 
-@section('instruction')
-    Register an Account.
-@endsection
 
 @section('form')
 

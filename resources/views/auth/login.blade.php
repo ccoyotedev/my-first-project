@@ -1,8 +1,5 @@
 @extends('layouts/form')
 
-@section('instruction')
-    Login!
-@endsection
 
 @section('form')
 
